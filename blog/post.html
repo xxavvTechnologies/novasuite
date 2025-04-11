@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="post-meta-top">
+                    <span id="post-category" class="post-category"></span>
+                    <time id="post-date" class="post-date"></time>
+                </div>
+                <h1 id="post-title"></h1>
+                <div class="post-meta-bottom">
+                    <span id="post-author" class="post-author"></span>
+                </div>
+            </header>
+            
+            <div class="post-featured-image">
+                <img id="post-image" src="" alt="">
+            </div>
+
+            <div class="post-content" id="post-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+
+            <footer class="post-footer">
+                <a href="/blog" class="secondary-button">← Back to Blog</a>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
+            authDomain: "novasuite1a.firebaseapp.com",
+            projectId: "novasuite1a",
+            storageBucket: "novasuite1a.firebasestorage.app",
+            messagingSenderId: "372384559285",
+            appId: "1:372384559285:web:56252eb9dd86b624a44efc",
+            measurementId: "G-DJF2XCV0Q8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+    </script>
+    <script src="../js/components.js"></script>
+    <script type="module" src="js/post.js"></script>
+</body>
+</html>

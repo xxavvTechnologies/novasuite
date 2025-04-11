@@ -1,0 +1,105 @@
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.markdown-editor {
+    position: relative;
+    height: 100%;
+}
+
+.editor-input {
+    width: 100%;
+    min-height: 500px;
+    background: var(--background);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text);
+    font-family: 'SF Mono', monospace;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.editor-preview {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.editor-preview h1 { font-size: 2em; margin-bottom: 1rem; }
+.editor-preview h2 { font-size: 1.5em; margin-bottom: 0.8rem; }
+.editor-preview h3 { font-size: 1.2em; margin-bottom: 0.6rem; }
+.editor-preview p { margin-bottom: 1rem; }
+.editor-preview code { 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.editor-preview pre {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.editor-preview img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.editor-preview blockquote {
+    border-left: 4px solid var(--nova-primary);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-group:last-child {
+    border-right: none;
+}
+
+.markdown-helper {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.preview-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--nova-primary);
+    color: var(--text);
+    padding: 0.8rem 1.5rem;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.preview-toggle:hover {
+    transform: translateY(-2px);
+}
+
+.editor-sidebar {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}

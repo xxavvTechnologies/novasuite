@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started with Nova Suite</title>
+<link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+.
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .start-container {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            background: var(--background);
+        }
+
+        .start-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .start-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .app-start-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-button {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .app-button:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: rgba(108, 99, 255, 0.1);
+        }
+
+        .app-button img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .app-button h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .app-button p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Nova Suite</a>
+    
+    <div class="start-container">
+        <div class="start-header">
+            <h1>Where would you like to start?</h1>
+            <p>Choose an app to begin your Nova Suite journey</p>
+        </div>
+
+        <div class="app-start-grid">
+            <a href="https://account.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_0c498accc67a4c5f90879d400b26830d~mv2.png" alt="Nova Account">
+                <h3>Nova Account</h3>
+                <p>Create your Nova ID</p>
+            </a>
+            <a href="https://search.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_5724b6ca5ab64193801259dddba35e59~mv2.png" alt="Nova Search">
+                <h3>Nova Search</h3>
+                <p>Search the web</p>
+            </a>
+            <a href="https://docs.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_908d68e048354dddb34ce90b3d523672~mv2.png" alt="Nova Docs">
+                <h3>Nova Docs</h3>
+                <p>Create & edit documents</p>
+            </a>
+            <a href="https://mail.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_4387cca31dd1410c8680c07f39ab8089~mv2.png" alt="Nova Mail">
+                <h3>Nova Mail</h3>
+                <p>Email & communications</p>
+            </a>
+            <a href="https://central.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_2c357651b54642a79b15ca30041f8f21~mv2.png" alt="Nova Central">
+                <h3>Nova Central</h3>
+                <p>Your personal dashboard</p>
+            </a>
+            <a href="https://calendar.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_f7d0a950849940eea71203ee7c4c6686~mv2.png" alt="Nova Calendar">
+                <h3>Nova Calendar</h3>
+                <p>Schedule & planning</p>
+            </a>
+            <a href="https://present.novasuite.one" class="app-button">
+                <img src="https://static.wixstatic.com/media/5f23d5_6f34bcc8616440599412855fac740dd8~mv2.png" alt="Nova Present">
+                <h3>Nova Present</h3>
+                <p>Create presentations</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

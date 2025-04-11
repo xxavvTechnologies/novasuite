@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin - Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar slide-in">
+            <a href="/" class="logo">
+                <img src="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png" alt="Nova Suite">
+                <span>Admin Panel</span>
+            </a>
+            <div class="nav-links">
+                <a href="manage.html" class="secondary-button">Manage Posts</a>
+                <a href="/blog" class="secondary-button">Back to Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-panel" id="admin-container">
+            <div class="login-form" id="login-form">
+                <h2>Admin Login</h2>
+                <p class="login-info">Sign in with your authorized Google account to access the admin panel.</p>
+                <button id="google-signin" class="google-signin-btn">
+                    <img src="https://www.google.com/favicon.ico" alt="Google">
+                    Sign in with Google
+                </button>
+            </div>
+
+            <div class="post-editor hidden" id="post-editor">
+                <div class="editor-header">
+                    <h2>Create New Post</h2>
+                    <div class="editor-actions">
+                        <button class="secondary-button" id="save-draft">Save Draft</button>
+                        <button class="primary-button" id="publish">Publish</button>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <div class="markdown-editor">
+                        <div class="editor-tools">
+                            <div class="toolbar-group">
+                                <button class="tool-btn" data-action="h1">H1</button>
+                                <button class="tool-btn" data-action="h2">H2</button>
+                                <button class="tool-btn" data-action="h3">H3</button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="tool-btn" data-action="bold">B</button>
+                                <button class="tool-btn" data-action="italic">I</button>
+                                <button class="tool-btn" data-action="strike">S</button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="tool-btn" data-action="link">Link</button>
+                                <button class="tool-btn" data-action="image">Image</button>
+                                <button class="tool-btn" data-action="code">Code</button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="tool-btn" data-action="quote">Quote</button>
+                                <button class="tool-btn" data-action="list">List</button>
+                                <button class="tool-btn" data-action="hr">Line</button>
+                            </div>
+                        </div>
+
+                        <textarea id="content" class="editor-input" placeholder="Write your post content in Markdown..."></textarea>
+                        <div class="markdown-helper">Markdown Supported</div>
+                        <div id="preview" class="editor-preview hidden"></div>
+                    </div>
+
+                    <div class="editor-sidebar">
+                        <div class="post-meta">
+                            <div class="meta-field">
+                                <label>Post Title</label>
+                                <input type="text" id="title" placeholder="Enter post title" required>
+                            </div>
+                            <div class="meta-field">
+                                <label>Category</label>
+                                <select id="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="feature">Feature Spotlight</option>
+                                    <option value="tips">Tips & Tricks</option>
+                                    <option value="news">Product News</option>
+                                </select>
+                            </div>
+                            <div class="meta-field">
+                                <label>Featured Image URL</label>
+                                <input type="url" id="featured-image" placeholder="https://...">
+                            </div>
+                            <div class="meta-field">
+                                <label>Excerpt</label>
+                                <textarea id="excerpt" rows="3" placeholder="Brief description of your post"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>&copy;2025 xxavvTechnologies. Admin Panel</p>
+        </div>
+    </footer>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
+            authDomain: "novasuite1a.firebaseapp.com",
+            projectId: "novasuite1a",
+            storageBucket: "novasuite1a.firebasestorage.app",
+            messagingSenderId: "372384559285",
+            appId: "1:372384559285:web:56252eb9dd86b624a44efc",
+            measurementId: "G-DJF2XCV0Q8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        window.auth = getAuth(app);
+        window.db = getFirestore(app);
+        window.signInWithPopup = signInWithPopup;
+        window.GoogleAuthProvider = GoogleAuthProvider;
+    </script>
+    <script type="module" src="js/admin.js"></script>
+    <button id="preview-toggle" class="preview-toggle">Toggle Preview</button>
+    <script type="module" src="js/editor.js"></script>
+</body>
+</html>

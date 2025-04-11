@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status - Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <meta name="description" content="Check the current operational status of Nova Suite services and view incident history.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/status.css">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>
+        <section class="hero small-hero">
+            <div class="gradient-bg"></div>
+            <h1>System Status</h1>
+            <p>Current operational status of Nova Suite services</p>
+        </section>
+
+        <section class="status-dashboard">
+            <div class="status-container">
+                <div class="system-status">
+                    <div class="status-indicator operational">
+                        <span class="status-dot"></span>
+                        <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <p class="last-updated">Last updated: <time id="last-check">Checking...</time></p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-group">
+                        <h2>Core Services</h2>
+                        <div class="service-items">
+                            <div class="service-item" data-service="main-system">
+                                <span class="service-name">Main System</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="nova-id">
+                                <span class="service-name">Nova ID</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="central">
+                                <span class="service-name">Nova Central</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-group">
+                        <h2>Apps</h2>
+                        <div class="service-items">
+                            <div class="service-item" data-service="nova-search">
+                                <span class="service-name">Nova Search</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="docs">
+                                <span class="service-name">Nova Docs</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="nova-present">
+                                <span class="service-name">Nova Present</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="nova-gists">
+                                <span class="service-name">Nova Gists</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="mail">
+                                <span class="service-name">Nova Mail</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="calendar">
+                                <span class="service-name">Nova Calendar</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-group">
+                        <h2>Online Services</h2>
+                        <div class="service-items">
+                            <div class="service-item" data-service="nova-buzz">
+                                <span class="service-name">Nova Buzz</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="nova-comm">
+                                <span class="service-name">Nova Comm</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-group">
+                        <h2>AI Services</h2>
+                        <div class="service-items">
+                            <div class="service-item" data-service="astro">
+                                <span class="service-name">Astro</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                            <div class="service-item" data-service="novaai">
+                                <span class="service-name">Nova AI</span>
+                                <span class="status-badge">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h2>Datacenters</h2>
+                    <div class="service-items">
+                        <div class="service-item" data-service="usa-east">
+                            <span class="service-name">USA East</span>
+                            <span class="status-badge">Checking...</span>
+                        </div>
+                        <div class="service-item" data-service="usa-west">
+                            <span class="service-name">USA West</span>
+                            <span class="status-badge">Checking...</span>
+                        </div>
+                        <div class="service-item" data-service="eur">
+                            <span class="service-name">EUR</span>
+                            <span class="status-badge">Checking...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<br>
+            <div class="incident-history">
+                    <h2>Recent Incidents</h2>
+                    <div class="incidents-list" id="incidents">
+                        <!-- Incidents will be loaded dynamically -->
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="js/components.js"></script>
+    <script type="module" src="js/status.js"></script>
+</body>
+</html>

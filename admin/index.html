@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <nav class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png" alt="Nova Suite">
+                <span>Admin Panel</span>
+            </div>
+            <div class="nav-items">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="#services" class="nav-item" data-section="services">
+                    <span class="icon">⚙️</span>
+                    Services
+                </a>
+                <a href="/blog/admin" class="nav-item">
+                    <span class="icon">📝</span>
+                    Blog Admin
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <button id="logout" class="secondary-button">Logout</button>
+            </div>
+        </nav>
+
+        <main class="admin-main">
+            <div id="login-container" class="login-container">
+                <div class="login-form">
+                    <h2>Admin Login</h2>
+                    <p>Sign in with your authorized admin account</p>
+                    <button id="google-signin" class="google-signin-btn">
+                        <img src="https://www.google.com/favicon.ico" alt="Google">
+                        Sign in with Google
+                    </button>
+                </div>
+            </div>
+
+            <div id="admin-content" class="admin-content hidden">
+                <section id="dashboard" class="content-section active">
+                    <h1>Dashboard</h1>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Active Services</h3>
+                            <div class="stat-value" id="active-services">Loading...</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>System Status</h3>
+                            <div class="stat-value" id="system-status">Loading...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="services" class="content-section">
+                    <h1>Services Management</h1>
+                    <button id="add-service" class="primary-button">Add New Service</button>
+                    <div class="services-grid" id="services-grid"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Incident Report Modal -->
+    <div id="incident-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Service Status Change</h2>
+            <form id="incident-form">
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="incident-description" placeholder="Explain why the status is being changed..." required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button" id="cancel-incident">Cancel</button>
+                    <button type="submit" class="primary-button">Update Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

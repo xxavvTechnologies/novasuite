@@ -1,0 +1,87 @@
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px var(--primary); }
+    50% { box-shadow: 0 0 20px var(--primary); }
+    100% { box-shadow: 0 0 5px var(--primary); }
+}
+
+@keyframes rotateGradient {
+    0% { background-position: 0% 50%; transform: rotate(0deg); }
+    50% { background-position: 100% 50%; transform: rotate(180deg); }
+    100% { background-position: 0% 50%; transform: rotate(360deg); }
+}
+
+@keyframes astroGlow {
+    0% { box-shadow: 0 0 5px var(--astro-primary); }
+    50% { box-shadow: 0 0 20px var(--astro-primary); }
+    100% { box-shadow: 0 0 5px var(--astro-primary); }
+}
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+.glow-effect {
+    animation: glowPulse 2s infinite;
+}
+
+.rotate-gradient {
+    animation: rotateGradient 15s linear infinite;
+}
+
+.astro-glow {
+    animation: astroGlow 2s infinite;
+}
+
+.astro-gradient {
+    background: linear-gradient(45deg, var(--astro-primary), var(--nova-primary));
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.nova-gradient {
+    background: linear-gradient(45deg, var(--nova-primary), var(--nova-secondary));
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.stagger-fade-in > * {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Stagger children animations */
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }

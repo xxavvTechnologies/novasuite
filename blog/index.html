@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Suite Blog</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>
+        <section class="hero small-hero">
+            <div class="gradient-bg"></div>
+            <h1>Nova Updates</h1>
+            <p>Latest features, tips, and Nova Suite insider updates</p>
+            <div class="hero-buttons">
+                <a href="../get-started.html" class="primary-button">Try Nova Suite</a>
+                <a href="index.html#features" class="secondary-button">Explore Features</a>
+            </div>
+        </section>
+
+        <section class="blog-categories">
+            <div class="category-pills">
+                <button class="pill active">All Updates</button>
+                <button class="pill">Feature Spotlights</button>
+                <button class="pill">Tips & Tricks</button>
+                <button class="pill">Product News</button>
+            </div>
+        </section>
+
+        <section class="blog-posts">
+            <div class="posts-grid" id="posts-container">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
+            authDomain: "novasuite1a.firebaseapp.com",
+            projectId: "novasuite1a",
+            storageBucket: "novasuite1a.firebasestorage.app",
+            messagingSenderId: "372384559285",
+            appId: "1:372384559285:web:56252eb9dd86b624a44efc",
+            measurementId: "G-DJF2XCV0Q8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+    </script>
+    <script src="../js/components.js"></script>
+    <script type="module" src="js/blog.js"></script>
+</body>
+</html>

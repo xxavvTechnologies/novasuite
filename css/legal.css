@@ -1,0 +1,122 @@
+.small-hero {
+    height: 40vh;
+    min-height: 300px;
+}
+
+.legal-content {
+    padding: 4rem 2rem;
+    background: var(--background);
+}
+
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--surface);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.legal-section {
+    margin: 2.5rem 0;
+}
+
+.legal-section h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.legal-section h3 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.legal-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.legal-section ul li {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.legal-section a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.legal-section a:hover {
+    opacity: 0.8;
+}
+
+.closing {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.check-list {
+    margin: 1.5rem 0;
+    background: rgba(108, 99, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.check-list p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.emphasis {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.contact-info {
+    margin: 1rem 0;
+    color: var(--text-secondary);
+}
+
+.security-features {
+    background: rgba(0, 200, 83, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.security-features p {
+    margin: 0.5rem 0;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .legal-container {
+        padding: 2rem;
+    }
+    
+    .legal-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .intro {
+        font-size: 1rem;
+    }
+}
