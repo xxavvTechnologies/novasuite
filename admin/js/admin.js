@@ -17,6 +17,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// Expose Firebase instances globally
+window.auth = auth;
+window.db = db;
+
 function initAdminPanel() {
     const loginContainer = document.getElementById('login-container');
     const adminContent = document.getElementById('admin-content');

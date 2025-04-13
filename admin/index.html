@@ -28,6 +28,10 @@
                     <span class="icon">📝</span>
                     Blog Admin
                 </a>
+                <a href="#reports" class="nav-item" data-section="reports">
+                    <span class="icon">📋</span>
+                    Reports
+                </a>
             </div>
             <div class="sidebar-footer">
                 <button id="logout" class="secondary-button">Logout</button>
@@ -66,6 +70,28 @@
                     <button id="add-service" class="primary-button">Add New Service</button>
                     <div class="services-grid" id="services-grid"></div>
                 </section>
+
+                <section id="reports" class="content-section">
+                    <h1>User Reports</h1>
+                    <div class="reports-header">
+                        <div class="reports-tabs">
+                            <button class="tab-btn active" data-type="bugs">Bugs</button>
+                            <button class="tab-btn" data-type="features">Features</button>
+                            <button class="tab-btn" data-type="security">Security</button>
+                            <button class="tab-btn" data-type="feedback">Feedback</button>
+                        </div>
+                        <select id="status-filter" class="status-select">
+                            <option value="all">All Status</option>
+                            <option value="new">New</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="reports-grid" id="reports-container">
+                        <!-- Reports will be loaded here -->
+                    </div>
+                </section>
             </div>
         </main>
     </div>
@@ -88,5 +114,6 @@
     </div>
 
     <script type="module" src="js/admin.js"></script>
+    <script type="module" src="js/reports.js"></script>
 </body>
 </html>

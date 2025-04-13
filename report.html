@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Issues - Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <meta name="description" content="Report issues, bugs, or submit feedback to help improve Nova Suite.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/report.css">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>
+        <section class="hero small-hero">
+            <div class="gradient-bg"></div>
+            <h1>Report & Feedback</h1>
+            <p>Help us improve Nova Suite by reporting issues or sharing feedback</p>
+        </section>
+
+        <section class="report-section">
+            <div class="report-container">
+                <div class="report-types">
+                    <button class="report-tab active" data-form="bug">Bug Report</button>
+                    <button class="report-tab" data-form="feature">Feature Request</button>
+                    <button class="report-tab" data-form="security">Security Issue</button>
+                    <button class="report-tab" data-form="feedback">General Feedback</button>
+                </div>
+
+                <!-- Bug Report Form -->
+                <form id="bug-form" class="report-form active">
+                    <h2>Report a Bug</h2>
+                    <div class="form-group">
+                        <label for="bug-email">Email *</label>
+                        <input type="email" id="bug-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-app">Affected App *</label>
+                        <select id="bug-app" required>
+                            <option value="">Select an app</option>
+                            <option value="account">Nova Account</option>
+                            <option value="docs">Nova Docs</option>
+                            <option value="mail">Nova Mail</option>
+                            <option value="calendar">Nova Calendar</option>
+                            <option value="central">Nova Central</option>
+                            <option value="search">Nova Search</option>
+                            <option value="present">Nova Present</option>
+                            <option value="gists">Nova Gists</option>
+                            <option value="sketch">Nova Sketch</option>
+                            <option value="comm">Nova Comm</option>
+                            <option value="buzz">Nova Buzz</option>
+                            <option value="astro">Astro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-browser">Browser *</label>
+                        <select id="bug-browser" required>
+                            <option value="">Select browser</option>
+                            <option value="chrome">Google Chrome</option>
+                            <option value="firefox">Firefox</option>
+                            <option value="safari">Safari</option>
+                            <option value="edge">Microsoft Edge</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-device">Device Type *</label>
+                        <select id="bug-device" required>
+                            <option value="">Select device type</option>
+                            <option value="desktop">Desktop</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="mobile">Mobile Phone</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-severity">Bug Severity *</label>
+                        <select id="bug-severity" required>
+                            <option value="">Select severity</option>
+                            <option value="critical">Critical - Service Unusable</option>
+                            <option value="high">High - Major Feature Broken</option>
+                            <option value="medium">Medium - Feature Partially Working</option>
+                            <option value="low">Low - Minor Issue</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-description">Description *</label>
+                        <textarea id="bug-description" rows="5" required placeholder="What happened? What did you expect to happen?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bug-steps">Steps to Reproduce</label>
+                        <textarea id="bug-steps" rows="3" placeholder="1. First step&#10;2. Second step&#10;3. ..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button">Submit Bug Report</button>
+                </form>
+
+                <!-- Feature Request Form -->
+                <form id="feature-form" class="report-form">
+                    <h2>Request a Feature</h2>
+                    <div class="form-group">
+                        <label for="feature-email">Email *</label>
+                        <input type="email" id="feature-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feature-app">Related App *</label>
+                        <select id="feature-app" required>
+                            <option value="">Select an app</option>
+                            <option value="account">Nova Account</option>
+                            <option value="docs">Nova Docs</option>
+                            <option value="mail">Nova Mail</option>
+                            <option value="calendar">Nova Calendar</option>
+                            <option value="central">Nova Central</option>
+                            <option value="search">Nova Search</option>
+                            <option value="present">Nova Present</option>
+                            <option value="gists">Nova Gists</option>
+                            <option value="sketch">Nova Sketch</option>
+                            <option value="comm">Nova Comm</option>
+                            <option value="buzz">Nova Buzz</option>
+                            <option value="astro">Astro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feature-priority">Priority Level</label>
+                        <select id="feature-priority">
+                            <option value="">Select priority</option>
+                            <option value="high">High - Would use daily</option>
+                            <option value="medium">Medium - Would use weekly</option>
+                            <option value="low">Low - Would use occasionally</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feature-use-case">Use Case *</label>
+                        <textarea id="feature-use-case" rows="3" required placeholder="Describe how you would use this feature..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="feature-description">Feature Description *</label>
+                        <textarea id="feature-description" rows="5" required placeholder="Describe the feature you'd like to see..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button">Submit Feature Request</button>
+                </form>
+
+                <!-- Security Form -->
+                <form id="security-form" class="report-form">
+                    <h2>Report Security Issue</h2>
+                    <div class="form-group">
+                        <label for="security-email">Email *</label>
+                        <input type="email" id="security-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-type">Issue Type *</label>
+                        <select id="security-type" required>
+                            <option value="">Select type</option>
+                            <option value="vulnerability">Security Vulnerability</option>
+                            <option value="privacy">Privacy Concern</option>
+                            <option value="abuse">Account/Service Abuse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-app">Affected App *</label>
+                        <select id="security-app" required>
+                            <option value="">Select an app</option>
+                            <option value="account">Nova Account</option>
+                            <option value="docs">Nova Docs</option>
+                            <option value="mail">Nova Mail</option>
+                            <option value="calendar">Nova Calendar</option>
+                            <option value="central">Nova Central</option>
+                            <option value="search">Nova Search</option>
+                            <option value="present">Nova Present</option>
+                            <option value="gists">Nova Gists</option>
+                            <option value="sketch">Nova Sketch</option>
+                            <option value="comm">Nova Comm</option>
+                            <option value="buzz">Nova Buzz</option>
+                            <option value="astro">Astro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-impact">Potential Impact *</label>
+                        <select id="security-impact" required>
+                            <option value="">Select impact level</option>
+                            <option value="critical">Critical - Immediate Action Required</option>
+                            <option value="high">High - Significant Risk</option>
+                            <option value="medium">Medium - Moderate Risk</option>
+                            <option value="low">Low - Minor Concern</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-description">Description *</label>
+                        <textarea id="security-description" rows="5" required placeholder="Describe the security issue..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="security-steps">Steps to Reproduce</label>
+                        <textarea id="security-steps" rows="3" placeholder="1. First step&#10;2. Second step&#10;3. ..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button">Submit Security Report</button>
+                </form>
+
+                <!-- Feedback Form -->
+                <form id="feedback-form" class="report-form">
+                    <h2>Share Your Feedback</h2>
+                    <div class="form-group">
+                        <label for="feedback-email">Email *</label>
+                        <input type="email" id="feedback-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-type">Feedback Type *</label>
+                        <select id="feedback-type" required>
+                            <option value="">Select type</option>
+                            <option value="general">General Feedback</option>
+                            <option value="suggestion">Suggestion</option>
+                            <option value="complaint">Complaint</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-message">Message *</label>
+                        <textarea id="feedback-message" rows="5" required placeholder="Share your thoughts..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button">Submit Feedback</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
+            authDomain: "novasuite1a.firebaseapp.com",
+            projectId: "novasuite1a",
+            storageBucket: "novasuite1a.firebasestorage.app",
+            messagingSenderId: "372384559285",
+            appId: "1:372384559285:web:56252eb9dd86b624a44efc"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+    </script>
+    <script src="js/components.js"></script>
+    <script type="module" src="js/report.js"></script>
+</body>
+</html>
