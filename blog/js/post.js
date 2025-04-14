@@ -22,26 +22,29 @@ async function loadPost() {
         const pageUrl = window.location.href;
         const defaultImage = 'https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png';
         const readingTime = Math.ceil(post.content.split(' ').length / 200); // Assuming 200 words per minute
-        
+        const shortDescription = post.excerpt || post.content.substring(0, 160).trim() + '...';
+
         // Update page title and meta tags
         document.title = `${post.title} - Nova Suite Blog`;
         
         // Update OpenGraph meta tags
-        document.getElementById('og-title').content = post.title;
-        document.getElementById('og-description').content = post.excerpt || post.content.substring(0, 160);
-        document.getElementById('og-image').content = post.featuredImage || defaultImage;
-        document.getElementById('og-url').content = pageUrl;
-        document.getElementById('og-section').content = post.category || 'Updates';
-        document.getElementById('og-published-time').content = post.date;
+        document.getElementById('og-title').setAttribute('content', post.title);
+        document.getElementById('og-description').setAttribute('content', shortDescription);
+        document.getElementById('og-image').setAttribute('content', post.featuredImage || defaultImage);
+        document.getElementById('og-url').setAttribute('content', pageUrl);
+        document.getElementById('og-section').setAttribute('content', post.category || 'Updates');
+        document.getElementById('og-published-time').setAttribute('content', new Date(post.date).toISOString());
         
         // Update Twitter Card meta tags
-        document.getElementById('twitter-title').content = post.title;
-        document.getElementById('twitter-description').content = post.excerpt || post.content.substring(0, 160);
-        document.getElementById('twitter-image').content = post.featuredImage || defaultImage;
-        document.getElementById('twitter-reading-time').content = `${readingTime} minutes`;
+        document.getElementById('twitter-title').setAttribute('content', post.title);
+        document.getElementById('twitter-description').setAttribute('content', shortDescription);
+        document.getElementById('twitter-image').setAttribute('content', post.featuredImage || defaultImage);
+        document.getElementById('twitter-reading-time').setAttribute('value', `${readingTime} minutes`);
         
         // Update author meta
-        document.getElementById('meta-author').content = post.author || 'Nova Suite Blog Team';
+        document.getElementById('meta-author').setAttribute('content', post.author || 'Nova Suite Blog Team');
+        document.getElementById('meta-published').setAttribute('content', new Date(post.date).toISOString());
+        document.getElementById('meta-modified').setAttribute('content', post.lastSaved || post.date);
 
         const categoryLabels = {
             'general': 'General Updates',
