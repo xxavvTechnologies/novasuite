@@ -16,12 +16,14 @@ async function loadPosts() {
 
 function createPostElement(post, id) {
     const categoryLabels = {
+        'general': 'General Updates',
         'feature': 'Feature Spotlight',
         'tips': 'Tips & Tricks',
         'news': 'Product News'
     };
 
     const categoryColors = {
+        'general': 'var(--text)',
         'feature': 'var(--nova-primary)',
         'tips': 'var(--nova-secondary)',
         'news': 'var(--astro-primary)'
@@ -68,6 +70,7 @@ async function filterPosts(category) {
         postsQuery = query(
             postsRef,
             where('category', '==', 
+                category === 'general updates' ? 'general' :
                 category === 'feature spotlights' ? 'feature' : 
                 category === 'tips & tricks' ? 'tips' : 'news'
             ),

@@ -44,6 +44,7 @@ async function loadPost() {
         document.getElementById('meta-author').content = post.author || 'Nova Suite Blog Team';
 
         const categoryLabels = {
+            'general': 'General Updates',
             'feature': 'Feature Spotlight',
             'tips': 'Tips & Tricks',
             'news': 'Product News'
@@ -54,6 +55,7 @@ async function loadPost() {
         // Set post content
         document.getElementById('post-category').textContent = categoryLabels[post.category] || 'Update';
         document.getElementById('post-category').style.setProperty('--category-color', 
+            post.category === 'general' ? 'var(--text)' :
             post.category === 'feature' ? 'var(--nova-primary)' :
             post.category === 'tips' ? 'var(--nova-secondary)' :
             'var(--astro-primary)'
