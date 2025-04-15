@@ -121,3 +121,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Add RSS update handler
+document.getElementById('update-rss')?.addEventListener('click', async () => {
+    const button = document.getElementById('update-rss');
+    try {
+        button.textContent = 'Updating...';
+        button.disabled = true;
+        
+        const response = await fetch('/.netlify/functions/scheduled-rss', {
+            method: 'GET'
+        });
+        
+        if (!response.ok) throw new Error('Failed to update RSS feed');
+        
+        alert('RSS feed updated successfully!');
+    } catch (error) {
+        console.error('Error updating RSS feed:', error);
+        alert('Error updating RSS feed: ' + error.message);
+    } finally {
+        button.textContent = 'Update RSS Feed';
+        button.disabled = false;
+    }
+});
