@@ -84,8 +84,8 @@ async function handler(event, context) {
     }
 }
 
-// Export for regular schedule (every hour)
-exports.scheduledRss = schedule('0 * * * *', handler);
+// Export the scheduled handler
+module.exports = schedule('0 * * * *', handler);
 
-// Export for manual updates
-exports.handler = handler;
+// Also export the handler directly for manual invocation
+module.exports.handler = handler;
