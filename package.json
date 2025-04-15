@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "firebase-admin": "^11.10.1",
     "@netlify/functions": "^2.0.0",
+    "firebase": "^10.1.0",
+    "firebase-admin": "^11.10.1",
     "escape-html": "^1.0.3"
   }
 }
