@@ -23,39 +23,33 @@ function escapeXML(text) {
     }[c]));
 }
 
-async function handler(event, context) {
-    try {
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+// Separate the RSS generation logic
+async function generateRSSFeed(db) {
+    const postsRef = collection(db, 'posts');
+    const postsQuery = query(
+        postsRef,
+        where('status', '==', 'published'),
+        orderBy('date', 'desc')
+    );
+    const snapshot = await getDocs(postsQuery);
 
-        // Get published posts
-        const postsRef = collection(db, 'posts');
-        const postsQuery = query(
-            postsRef,
-            where('status', '==', 'published'),
-            orderBy('date', 'desc')
-        );
-        const snapshot = await getDocs(postsQuery);
+    const items = [];
+    snapshot.forEach(doc => {
+        const post = doc.data();
+        items.push(`
+            <item>
+                <title>${escapeXML(post.title)}</title>
+                <link>https://novasuite.one/blog/post.html?id=${doc.id}</link>
+                <description>${escapeXML(post.excerpt || post.content.substring(0, 150) + '...')}</description>
+                <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+                <guid isPermaLink="true">https://novasuite.one/blog/post.html?id=${doc.id}</guid>
+                <category>${escapeXML(post.category || 'Updates')}</category>
+                ${post.featuredImage ? `<enclosure url="${escapeXML(post.featuredImage)}" type="image/jpeg"/>` : ''}
+            </item>
+        `);
+    });
 
-        // Generate RSS items
-        const items = [];
-        snapshot.forEach(doc => {
-            const post = doc.data();
-            items.push(`
-                <item>
-                    <title>${escapeXML(post.title)}</title>
-                    <link>https://novasuite.one/blog/post.html?id=${doc.id}</link>
-                    <description>${escapeXML(post.excerpt || post.content.substring(0, 150) + '...')}</description>
-                    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-                    <guid isPermaLink="true">https://novasuite.one/blog/post.html?id=${doc.id}</guid>
-                    <category>${escapeXML(post.category || 'Updates')}</category>
-                    ${post.featuredImage ? `<enclosure url="${escapeXML(post.featuredImage)}" type="image/jpeg"/>` : ''}
-                </item>
-            `);
-        });
-
-        const rss = `<?xml version="1.0" encoding="UTF-8"?>
+    return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Nova Suite Blog</title>
@@ -66,12 +60,21 @@ async function handler(event, context) {
         ${items.join('')}
     </channel>
 </rss>`;
+}
+
+// Main handler function
+async function handler(event, context) {
+    try {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const rss = await generateRSSFeed(db);
 
         return {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/xml; charset=utf-8',
-                'Cache-Control': 'public, max-age=21600'
+                'Cache-Control': 'public, max-age=21600',
+                'Access-Control-Allow-Origin': '*'
             },
             body: rss
         };
@@ -84,4 +87,6 @@ async function handler(event, context) {
     }
 }
 
-export const handler = schedule('0 */6 * * *', handler);
+// Export both scheduled and direct handler
+export const scheduledHandler = schedule('0 */6 * * *', handler);
+export { handler };
