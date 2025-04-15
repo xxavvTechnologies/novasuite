@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
+  command = "# no build command needed"
 
 [[redirects]]
   from = "/astro"
@@ -35,3 +37,28 @@
   from = "/*"
   to = "/404.html"
   status = 404
+
+[[headers]]
+  for = "/.netlify/functions/rss"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions.scheduled-rss]
+  schedule = "0 */6 * * *"
+
+[[redirects]]
+  from = "/blog/feed.xml"
+  to = "/.netlify/functions/scheduled-rss"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/blog/feed.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=21600"
+    Access-Control-Allow-Origin = "*"
