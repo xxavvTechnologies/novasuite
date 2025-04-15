@@ -63,7 +63,7 @@ async function generateRSSFeed(db) {
 }
 
 // Main handler function
-async function handler(event, context) {
+async function mainHandler(event, context) {
     try {
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
@@ -87,6 +87,8 @@ async function handler(event, context) {
     }
 }
 
-// Export both scheduled and direct handler
-export const scheduledHandler = schedule('0 */6 * * *', handler);
-export { handler };
+// Export for manual updates
+export { mainHandler as handler };
+
+// Export scheduled version
+export const scheduledRss = schedule('0 */6 * * *', mainHandler);
