@@ -46,7 +46,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["firebase-admin"]
+  external_node_modules = ["firebase", "firebase-admin"]
 
 [functions.scheduled-rss]
   schedule = "0 */6 * * *"
@@ -61,5 +61,5 @@
   for = "/blog/feed.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
-    Cache-Control = "public, max-age=21600"
+    Cache-Control = "public, max-age=3600"
     Access-Control-Allow-Origin = "*"

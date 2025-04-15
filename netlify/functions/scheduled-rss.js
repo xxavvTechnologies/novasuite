@@ -1,7 +1,7 @@
-import { schedule } from '@netlify/functions';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
-import escapeHtml from 'escape-html';
+const { schedule } = require('@netlify/functions');
+const { initializeApp } = require('firebase/app');
+const { getFirestore, collection, query, where, orderBy, getDocs } = require('firebase/firestore');
+const escapeHtml = require('escape-html');
 
 const firebaseConfig = {
     apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
@@ -85,7 +85,7 @@ async function handler(event, context) {
 }
 
 // Export for regular schedule (every hour)
-export const scheduledRss = schedule('0 * * * *', handler);
+exports.scheduledRss = schedule('0 * * * *', handler);
 
 // Export for manual updates
-export { handler };
+exports.handler = handler;
