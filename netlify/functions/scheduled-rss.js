@@ -84,4 +84,5 @@ async function handler(event, context) {
     }
 }
 
-export const handler = schedule('0 */6 * * *', handler);
+// Run every 30 minutes using cron syntax: "*/30 * * * *"
+export const handler = schedule('*/30 * * * *', handler);
