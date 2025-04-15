@@ -2,12 +2,9 @@
   "name": "novasuite-website",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "dependencies": {
+    "firebase-admin": "^11.10.1",
     "@netlify/functions": "^2.0.0",
-    "firebase": "^10.1.0",
     "escape-html": "^1.0.3"
   }
 }

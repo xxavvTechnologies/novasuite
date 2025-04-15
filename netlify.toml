@@ -56,7 +56,6 @@
   to = "/.netlify/functions/scheduled-rss"
   status = 200
   force = true
-  methods = ["GET"]
 
 [[headers]]
   for = "/blog/feed.xml"

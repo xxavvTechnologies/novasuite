@@ -1,4 +1,3 @@
-import { schedule } from '@netlify/functions';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
 import escapeHtml from 'escape-html';
@@ -14,22 +13,15 @@ const firebaseConfig = {
 
 function escapeXML(text) {
     if (!text) return '';
-    return text.replace(/[<>&'"]/g, c => ({
-        '<': '&lt;',
-        '>': '&gt;',
-        '&': '&amp;',
-        "'": '&apos;',
-        '"': '&quot;'
-    }[c]));
+    return escapeHtml(text);
 }
 
-async function handler(event, context) {
+export async function handler(event, context) {
     try {
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Get published posts
+        // Get all published posts
         const postsRef = collection(db, 'posts');
         const postsQuery = query(
             postsRef,
@@ -38,7 +30,6 @@ async function handler(event, context) {
         );
         const snapshot = await getDocs(postsQuery);
 
-        // Generate RSS items
         const items = [];
         snapshot.forEach(doc => {
             const post = doc.data();
@@ -71,7 +62,7 @@ async function handler(event, context) {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/xml; charset=utf-8',
-                'Cache-Control': 'public, max-age=21600'
+                'Cache-Control': 'no-cache'
             },
             body: rss
         };
@@ -83,9 +74,3 @@ async function handler(event, context) {
         };
     }
 }
-
-// Export for regular schedule (every hour)
-export const scheduledRss = schedule('0 * * * *', handler);
-
-// Export for manual updates
-export { handler };
