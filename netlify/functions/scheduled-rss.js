@@ -1,7 +1,7 @@
-const { schedule } = require('@netlify/functions');
-const { initializeApp } = require('firebase/app');
-const { getFirestore, collection, query, where, orderBy, getDocs } = require('firebase/firestore');
-const escapeHtml = require('escape-html');
+import { schedule } from '@netlify/functions';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
+import escapeHtml from 'escape-html';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
@@ -84,8 +84,4 @@ async function handler(event, context) {
     }
 }
 
-// Export the scheduled handler
-module.exports = schedule('0 * * * *', handler);
-
-// Also export the handler directly for manual invocation
-module.exports.handler = handler;
+export const handler = schedule('0 */6 * * *', handler);
