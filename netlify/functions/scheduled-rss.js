@@ -1,7 +1,7 @@
-import { schedule } from '@netlify/functions';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
-import escapeHtml from 'escape-html';
+const { schedule } = require('@netlify/functions');
+const { initializeApp } = require('firebase/app');
+const { getFirestore, collection, query, where, orderBy, getDocs } = require('firebase/firestore');
+const escapeHtml = require('escape-html');
 
 const firebaseConfig = {
     apiKey: "AIzaSyDy0AE6ew6K3DEqjkZhM4CRpbt2bD-0t5I",
@@ -12,23 +12,12 @@ const firebaseConfig = {
     appId: "1:372384559285:web:56252eb9dd86b624a44efc"
 };
 
-function escapeXML(text) {
-    if (!text) return '';
-    return text.replace(/[<>&'"]/g, c => ({
-        '<': '&lt;',
-        '>': '&gt;',
-        '&': '&amp;',
-        "'": '&apos;',
-        '"': '&quot;'
-    }[c]));
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-async function handler(event, context) {
+const handler = async (event, context) => {
     try {
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
         // Get published posts
         const postsRef = collection(db, 'posts');
         const postsQuery = query(
@@ -44,13 +33,13 @@ async function handler(event, context) {
             const post = doc.data();
             items.push(`
                 <item>
-                    <title>${escapeXML(post.title)}</title>
+                    <title>${escapeHtml(post.title)}</title>
                     <link>https://novasuite.one/blog/post.html?id=${doc.id}</link>
-                    <description>${escapeXML(post.excerpt || post.content.substring(0, 150) + '...')}</description>
+                    <description>${escapeHtml(post.excerpt || post.content.substring(0, 150) + '...')}</description>
                     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
                     <guid isPermaLink="true">https://novasuite.one/blog/post.html?id=${doc.id}</guid>
-                    <category>${escapeXML(post.category || 'Updates')}</category>
-                    ${post.featuredImage ? `<enclosure url="${escapeXML(post.featuredImage)}" type="image/jpeg"/>` : ''}
+                    <category>${escapeHtml(post.category || 'Updates')}</category>
+                    ${post.featuredImage ? `<enclosure url="${escapeHtml(post.featuredImage)}" type="image/jpeg"/>` : ''}
                 </item>
             `);
         });
@@ -71,7 +60,7 @@ async function handler(event, context) {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/xml; charset=utf-8',
-                'Cache-Control': 'public, max-age=21600'
+                'Cache-Control': 'public, max-age=1800'
             },
             body: rss
         };
@@ -82,7 +71,7 @@ async function handler(event, context) {
             body: JSON.stringify({ error: 'Error generating RSS feed' })
         };
     }
-}
+};
 
-// Run every 30 minutes using cron syntax: "*/30 * * * *"
-export const handler = schedule('*/30 * * * *', handler);
+// Export the scheduled handler (runs every 30 minutes)
+exports.handler = schedule('*/30 * * * *', handler);

@@ -1,6 +1,7 @@
 {
   "name": "novasuite-website",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "firebase-admin": "^11.10.1",
