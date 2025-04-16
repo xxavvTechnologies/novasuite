@@ -1,9 +1,9 @@
 {
   "name": "novasuite-website",
   "version": "1.0.0",
-  "type": "module",
   "private": true,
   "dependencies": {
+    "firebase": "^9.22.1",
     "firebase-admin": "^11.10.1",
     "@netlify/functions": "^2.0.0",
     "escape-html": "^1.0.3"

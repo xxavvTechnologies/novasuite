@@ -1,5 +1,5 @@
 const { schedule } = require('@netlify/functions');
-const { initializeApp } = require('firebase/app');
+const firebase = require('firebase/app');
 const { getFirestore, collection, query, where, orderBy, getDocs } = require('firebase/firestore');
 const escapeHtml = require('escape-html');
 
@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const handler = async (event, context) => {
@@ -74,4 +74,4 @@ const handler = async (event, context) => {
 };
 
 // Export the scheduled handler (runs every 30 minutes)
-exports.handler = schedule('*/30 * * * *', handler);
+module.exports.handler = schedule('*/30 * * * *', handler);
