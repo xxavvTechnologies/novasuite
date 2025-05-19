@@ -59,45 +59,267 @@
 <body>
     <div id="header-component"></div>
 
-    <main>
-        <section class="hero">
+    <main>        <section class="hero">
             <div class="gradient-bg astro-gradient"></div>
-            <h1 class="slide-in">Meet Astro</h1>
-            <p class="slide-in">Your AI companion across Nova Suite</p>
-            <button class="primary-button astro-glow">Try Astro Now</button>
-        </section>
-
-        <section class="features stagger-fade-in">
+            <h1 class="slide-in">Meet Astro <span class="version-badge">v3.1.0</span></h1>
+            <p class="slide-in">Your AI companion across Nova Suite, now powered by ModelA 8-Pro</p>
+            <div class="hero-buttons">
+                <button class="primary-button astro-glow">Try Astro Now</button>
+                <a href="#whats-new" class="secondary-button">What's New</a>
+            </div>
+        </section><section class="features stagger-fade-in">
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
-                <h3>Smart Assistant</h3>
-                <p>Get instant help, suggestions, and automation across all Nova apps</p>
+                <h3>New ModelA 8-Pro</h3>
+                <p>Our most advanced model yet with enhanced reasoning, faster responses, and improved memory</p>
+            </div>            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Conversation Modes</h3>
+                <p>Six specialized modes for General, Code, Writing, Analysis, Creative, and Search tasks</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <h3>Content Generation</h3>
-                <p>Generate text, summaries, and creative content with AI</p>
+                <div class="feature-icon">🎨</div>
+                <h3>Canvas: Interactive Editing</h3>
+                <p>Edit content directly within Astro's responses using the new && feature</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔍</div>
-                <h3>Smart Search</h3>
-                <p>Find exactly what you need with AI-powered search</p>
+                <h3>Enhanced Search</h3>
+                <p>Experimental Nova Search with dynamic loading and fluid search experience</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Context Aware</h3>
-                <p>Astro understands your work context for better assistance</p>
+        </section>
+
+        <section id="whats-new" class="whats-new-section stagger-fade-in">
+            <div class="whats-new-container">
+                <div class="whats-new-header">
+                    <h2>What's New in Astro v3.1.0</h2>
+                    <p>Released on May 10, 2025 - Our most significant update yet</p>
+                </div>
+                
+                <div class="whats-new-grid">                    <div class="whats-new-item">
+                        <span class="feature-tag">Core Model</span>
+                        <h3><span class="feature-highlight">ModelA 8-Pro</span></h3>
+                        <p>Our most advanced language model yet, featuring enhanced reasoning capabilities comparable to LLaMa 3.3 70B, with improved context handling.</p>
+                        <ul>
+                            <li>Significantly better at code generation and debugging</li>
+                            <li>Knowledge cut-off date of October 2023</li>
+                            <li>Enhanced context handling for longer conversations</li>
+                            <li>Reduced hallucinations compared to ModelA 7</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">New Feature</span>
+                        <h3><span class="feature-highlight">Canvas: Interactive Editing</span></h3>
+                        <p>Edit content directly within Astro's responses using the new interactive canvas feature.</p>
+                        <ul>
+                            <li>Use the && command to open any text in the editing canvas</li>
+                            <li>Live formatting and syntax highlighting for code</li>
+                            <li>Multiple formatting options and export capabilities</li>
+                            <li>Collaborative editing when using shared workspaces</li>
+                        </ul>
+                    </div>
+                      <div class="whats-new-item">
+                        <span class="feature-tag">New Feature</span>
+                        <h3><span class="feature-highlight">Conversation Modes</span></h3>
+                        <p>Six specialized modes to optimize Astro for specific tasks and workflows, introduced for the first time in v3.1.0.</p>
+                        <ul>
+                            <li><strong>General/Basic:</strong> Standard comprehensive assistance</li>
+                            <li><strong>Code Assist:</strong> Optimized for coding tasks with improved debugging</li>
+                            <li><strong>Writing Assist:</strong> Enhanced content creation and editing</li>
+                            <li><strong>Analysis Assist:</strong> Better data analysis and interpretation</li>
+                            <li><strong>Creative Assist:</strong> Enhanced storytelling and creative projects</li>
+                            <li><strong>Astro Search:</strong> Nova Search powered information retrieval</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Experimental</span>
+                        <h3><span class="feature-highlight">Nova Search</span></h3>
+                        <p>Our new experimental search functionality connects Astro to real-time web information.</p>
+                        <ul>
+                            <li>Real-time information without leaving the conversation</li>
+                            <li>Dynamic loading of search results</li>
+                            <li>Citation tracking with source verification</li>
+                            <li>Privacy-first design with no search history stored on our servers</li>
+                        </ul>
+                    </div>
+                      <div class="whats-new-item">
+                        <span class="feature-tag">Improvement</span>
+                        <h3><span class="feature-highlight">Increased Capacity</span></h3>
+                        <p>More resources available to users for their daily Astro interactions.</p>
+                        <ul>
+                            <li>Daily token limit increased from 6K to 9K</li>
+                            <li>Better response handling for complex queries</li>
+                            <li>Improved conversation management</li>
+                            <li>Enhanced overall system reliability</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Performance</span>
+                        <h3><span class="feature-highlight">System-wide Optimizations</span></h3>
+                        <p>Major performance improvements across the entire Nova Suite platform.</p>
+                        <ul>
+                            <li>50% faster startup time</li>
+                            <li>Reduced memory usage by 30%</li>
+                            <li>Optimized caching for frequently used prompts</li>
+                            <li>Better offline capabilities with enhanced local processing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <h3>Version Comparison</h3>
+                    <p>See how Astro v3.1.0 compares to previous releases</p>
+                </div>
+                  <table class="version-comparison">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>v2.5.0</th>
+                            <th>v3.0.0</th>
+                            <th>v3.1.0</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ModelA 8-Pro</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Canvas Editing</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Conversation Modes</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span> (6 modes)</td>
+                        </tr>
+                        <tr>
+                            <td>Nova Search</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span> (Experimental)</td>
+                        </tr>
+                        <tr>
+                            <td>Daily Token Limit</td>
+                            <td>4K tokens</td>
+                            <td>6K tokens</td>
+                            <td>9K tokens</td>
+                        </tr>
+                        <tr>
+                            <td>Knowledge Cut-off</td>
+                            <td>Apr 2023</td>
+                            <td>Apr 2023</td>
+                            <td>Oct 2023</td>
+                        </tr>
+                    </tbody>
+                </table>
+                  <div class="demo-section">
+                    <h3>See Astro v3.1.0 in Action</h3>
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="play-button">▶</div>
+                            <img src="images/astro-v3-demo-thumbnail.png" alt="Astro v3.1.0 Demo" class="demo-thumbnail">
+                        </div>
+                        <p class="video-caption">Watch how the new conversation modes powered by ModelA 8-Pro transform your workflow</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="showcase">
             <div class="showcase-item">
                 <div class="showcase-content slide-in">
-                    <h2>Powered by NovaAI</h2>
-                    <p>Astro is built on our proprietary NovaAI technology, designed to understand and assist with your work needs while maintaining privacy and security.</p>
+                    <h2>Powered by Nova AI</h2>
+                    <p>Astro is built on our proprietary Nova AI technology, designed to understand and assist with your work needs while maintaining privacy and security.</p>
                 </div>
                 <div class="showcase-image">
                     <div class="floating-ui float-animation"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modela-showcase">
+            <div class="content-container">                <div class="model-header">
+                    <h2>Meet ModelA 8-Pro</h2>
+                    <p class="section-subtitle">Our most advanced AI model to date, powering Astro v3.1.0 - <a href="novaai.html" class="model-link">Learn more about Nova AI</a></p>
+                </div>
+                
+                <div class="model-specs">
+                    <div class="spec-card">
+                        <div class="spec-icon">⚡</div>
+                        <h3>Powerful Performance</h3>
+                        <p>Comparable to LLaMa 3.3 70B with impressive performance across a range of tasks</p>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">🧠</div>
+                        <h3>Superior Reasoning</h3>
+                        <p>Enhanced logical reasoning capabilities with significant improvements in complex problem-solving</p>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">🔐</div>
+                        <h3>Privacy-First</h3>
+                        <p>Industry standard encryption with all conversation data stored locally on your device</p>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">💻</div>
+                        <h3>Code Excellence</h3>
+                        <p>Top-tier performance in programming tasks with advanced debugging capabilities</p>
+                    </div>
+                </div>                <div class="benchmark-container">
+                    <h3>How ModelA 8-Pro Compares to LLaMa 3.3 70B</h3>
+                    <div class="benchmark-grid">
+                        <div class="benchmark-item">
+                            <div class="benchmark-name">Reasoning Tasks</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill" style="width: 98%;">98%</div>
+                            </div>
+                            <div class="benchmark-note">Comparable performance in logical reasoning</div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-name">Code Generation</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill" style="width: 97%;">97%</div>
+                            </div>
+                            <div class="benchmark-note">Nearly identical code quality and accuracy</div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-name">Creative Writing</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill" style="width: 99%;">99%</div>
+                            </div>
+                            <div class="benchmark-note">Matched capabilities in creative text generation</div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-name">Daily Token Limit</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill" style="width: 100%;">9K</div>
+                            </div>
+                            <div class="benchmark-note">50% increase from previous version (6K)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="content-container">
+                <div class="cta-content">                    <h2>Ready to experience Astro v3.1.0?</h2>
+                    <p>Upgrade today and discover the power of ModelA 8-Pro in your daily workflow.</p>
+                    <div class="cta-buttons">
+                        <button class="primary-button astro-glow">Try Astro Now</button>
+                        <a href="https://novasuite.one/blog/post.html?id=GVMvlDGr1iFdCxhWRKCK" class="secondary-button">Read Release Notes</a>
+                    </div>
                 </div>
             </div>
         </section>

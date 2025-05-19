@@ -32,23 +32,36 @@
     <meta name="robots" content="index, follow">
     
     <title>Blog Post - Nova Suite</title>
-    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
 </head>
 <body>
-    <div id="header-component"></div>
-
-    <main>
+    <div id="header-component"></div>    <main>
         <article class="blog-post">
             <header class="post-header">
                 <div class="post-meta-top">
                     <span id="post-category" class="post-category"></span>
                     <time id="post-date" class="post-date"></time>
+                    <span id="reading-time" class="post-reading-time"><i class="far fa-clock"></i> <span id="minutes"></span> min read</span>
                 </div>
                 <h1 id="post-title"></h1>
                 <div class="post-meta-bottom">
-                    <span id="post-author" class="post-author"></span>
+                    <div class="post-author-info">
+                        <div class="author-details">
+                            <span id="post-author" class="post-author"></span>
+                        </div>
+                    </div>
+                    <div class="post-share">
+                        <span class="share-label">Share:</span>
+                        <div class="share-icons">
+                            <a href="#" id="share-twitter" class="social-icon" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" id="share-facebook" class="social-icon" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" id="share-linkedin" class="social-icon" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" id="share-copy" class="social-icon" aria-label="Copy Link"><i class="far fa-copy"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
             
@@ -56,20 +69,60 @@
                 <img id="post-image" src="" alt="">
             </div>
 
-            <div class="post-content" id="post-content">
-                <!-- Content will be dynamically inserted here -->
-            </div>
+            <div class="post-layout">
+                <aside class="post-toc-container">
+                    <div class="toc-sticky">
+                        <h3 class="toc-title"><i class="fas fa-list"></i> Table of Contents</h3>
+                        <nav id="table-of-contents" class="table-of-contents">
+                            <!-- TOC will be dynamically generated -->
+                        </nav>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="reading-progress"></div>
+                        </div>
+                    </div>
+                </aside>
 
-            <footer class="post-footer">
-                <a href="/blog" class="secondary-button">← Back to Blog</a>
-            </footer>
+                <div class="post-main-content">
+                    <div class="post-content" id="post-content">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+
+                    <div id="post-tags" class="post-tags">
+                        <!-- Tags will be inserted here -->
+                    </div>
+
+                    <div class="author-bio">
+                        <div class="author-details">
+                            <h3 id="author-name">Nova Suite Blog Team</h3>
+                            <p id="author-bio">The Nova Suite team brings you the latest updates, insights, and best practices for maximizing productivity and creativity in your development workflow.</p>
+                            <div class="author-social">
+                                <a href="https://twitter.com/xxavvtech" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="related-posts">
+                        <h3>Related Articles</h3>
+                        <div id="related-posts-container" class="related-posts-grid">
+                            <!-- Related posts will be inserted here -->
+                        </div>
+                    </div>
+
+                    <footer class="post-footer">
+                        <a href="/blog" class="secondary-button">← Back to Blog</a>
+                        <div class="post-pagination">
+                            <a href="#" id="prev-post" class="pagination-link hidden">← Previous Post</a>
+                            <a href="#" id="next-post" class="pagination-link hidden">Next Post →</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
         </article>
     </main>
 
     <div id="footer-component"></div>
 
-    <!-- Firebase -->
-    <script type="module">
+    <!-- Firebase -->    <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
         import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
 
@@ -86,8 +139,20 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         window.db = getFirestore(app);
-    </script>
+    </script>    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script src="../js/components.js"></script>
     <script type="module" src="js/post.js"></script>
+    
+    <!-- Back-to-top button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <i class="fas fa-sun light-icon"></i>
+        <i class="fas fa-moon dark-icon"></i>
+    </button>
 </body>
 </html>

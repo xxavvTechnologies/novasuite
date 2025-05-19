@@ -3,45 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Started with Nova Suite</title>
-<link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <title>Get Started with Nova Suite - Your Productivity Journey Begins Here</title>
+    <meta name="description" content="Start your Nova Suite journey today. Create your free Nova ID, explore our apps, and unlock a world of productivity.">
+    <meta name="keywords" content="nova suite, get started, nova id, free productivity apps, cloud productivity">
+    
     <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-.
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Get Started with Nova Suite - Your Digital Home for Productivity">
+    <meta property="og:description" content="Start your Nova Suite journey today. Create your free Nova ID, explore our apps, and unlock a world of productivity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://novasuite.one/get-started.html">
+    <meta property="og:image" content="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    
     <style>
-        .start-container {
-            min-height: 100vh;
+        /* Get Started Page Specific Styles */
+        .onboarding-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .onboarding-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #001f47, #0033cc);
+        }
+
+        .onboarding-hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 25% 25%, rgba(0, 46, 255, 0.4), transparent 50%),
+                         radial-gradient(circle at 75% 75%, rgba(158, 0, 255, 0.4), transparent 50%);
+        }
+
+        .onboarding-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        .onboarding-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #fff, #d0d0d0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .onboarding-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .steps-section {
             padding: 4rem 2rem;
             background: var(--background);
+            position: relative;
         }
 
-        .start-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        .steps-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--nova-primary), transparent);
         }
 
-        .start-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary), #FF6B6B);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .app-start-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .steps-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .app-button {
-            background: var(--surface);
-            padding: 2rem;
+        .steps-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-card {
+            background: rgba(30, 30, 50, 0.3);
             border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 30, 50, 0.5);
+            border-color: var(--nova-primary);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--nova-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .step-card .primary-button {
+            margin-top: auto;
+        }
+
+        .app-catalog {
+            background: linear-gradient(180deg, var(--background), #0d1525);
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .app-catalog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            opacity: 0.1;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-card {
+            background: rgba(30, 30, 50, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             text-decoration: none;
             color: var(--text);
@@ -49,91 +201,425 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .app-button:hover {
+        .app-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
-            background: rgba(108, 99, 255, 0.1);
+            border-color: var(--nova-primary);
+            background: rgba(40, 40, 60, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .app-button img {
-            width: 64px;
-            height: 64px;
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-card h3 {
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
-        .app-button h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .app-button p {
+        .app-card p {
             color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-section {
+            padding: 5rem 2rem;
+            background: var(--background);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: rgba(30, 30, 50, 0.3);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(40, 40, 60, 0.5);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: rgba(20, 20, 30, 0.3);
+        }
+
+        .faq-answer p {
+            margin: 0;
+            padding: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .buttons-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+        
+        .category-tab {
+            background: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
-        .back-link {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
+        
+        .category-tab:hover {
+            background: rgba(40, 40, 70, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
         }
-
-        .back-link:hover {
-            color: var(--primary);
+        
+        .category-tab.active {
+            background: var(--nova-primary);
+            color: #fff;
+            border-color: var(--nova-primary);
+            box-shadow: 0 0 15px rgba(0, 46, 255, 0.5);
+        }
+        
+        /* Secondary Button */
+        .secondary-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Additional Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Back to Nova Suite</a>
-    
-    <div class="start-container">
-        <div class="start-header">
-            <h1>Where would you like to start?</h1>
-            <p>Choose an app to begin your Nova Suite journey</p>
-        </div>
+    <div id="header-component"></div>
 
-        <div class="app-start-grid">
-            <a href="https://account.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_0c498accc67a4c5f90879d400b26830d~mv2.png" alt="Nova Account">
-                <h3>Nova Account</h3>
-                <p>Create your Nova ID</p>
-            </a>
-            <a href="https://search.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_5724b6ca5ab64193801259dddba35e59~mv2.png" alt="Nova Search">
-                <h3>Nova Search</h3>
-                <p>Search the web</p>
-            </a>
-            <a href="https://docs.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_908d68e048354dddb34ce90b3d523672~mv2.png" alt="Nova Docs">
-                <h3>Nova Docs</h3>
-                <p>Create & edit documents</p>
-            </a>
-            <a href="https://mail.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_4387cca31dd1410c8680c07f39ab8089~mv2.png" alt="Nova Mail">
-                <h3>Nova Mail</h3>
-                <p>Email & communications</p>
-            </a>
-            <a href="https://central.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_2c357651b54642a79b15ca30041f8f21~mv2.png" alt="Nova Central">
-                <h3>Nova Central</h3>
-                <p>Your personal dashboard</p>
-            </a>
-            <a href="https://calendar.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_f7d0a950849940eea71203ee7c4c6686~mv2.png" alt="Nova Calendar">
-                <h3>Nova Calendar</h3>
-                <p>Schedule & planning</p>
-            </a>
-            <a href="https://present.novasuite.one" class="app-button">
-                <img src="https://static.wixstatic.com/media/5f23d5_6f34bcc8616440599412855fac740dd8~mv2.png" alt="Nova Present">
-                <h3>Nova Present</h3>
-                <p>Create presentations</p>
-            </a>
-        </div>
-    </div>
+    <main>        <!-- Hero Section -->
+        <section class="onboarding-hero">
+            <div class="onboarding-hero-bg"></div>
+            <div class="onboarding-hero-content slide-in">
+                <h1>Begin Your Productivity Journey</h1>
+                <p>Welcome to Nova Suite! Get started in three simple steps and unlock a world of free, powerful productivity tools.</p>
+                <div class="hero-cta">
+                    <a href="#steps" class="primary-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                    <a href="index.html#tour" class="tour-button"><i class="fas fa-play-circle"></i> Take the Tour</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+        <section id="steps" class="steps-section">
+            <div class="steps-container">
+                <div class="section-header centered">
+                    <span class="section-badge">Get Started</span>
+                    <h2>Three Simple Steps</h2>
+                    <p class="section-description">Follow these steps to begin your Nova Suite experience and unlock full access to all our tools.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Create Your Nova ID</h3>
+                        <p>Sign up for your free Nova ID to access all apps and features with a single account. Your data will sync across devices and stay secure.</p>
+                        <a href="https://account.novasuite.one" class="primary-button">Create Account <i class="fas fa-user-plus"></i></a>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Explore Your Dashboard</h3>
+                        <p>Visit Nova Central for your personalized dashboard. Customize your workspace and access your favorite apps with a single click.</p>
+                        <a href="https://central.novasuite.one" class="primary-button">Open Dashboard <i class="fas fa-th-large"></i></a>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Start Using Apps</h3>
+                        <p>Choose from our growing collection of productivity tools. All apps are free to use and designed to work seamlessly together.</p>
+                        <a href="#app-catalog" class="primary-button">Browse Apps <i class="fas fa-rocket"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Catalog -->
+        <section id="app-catalog" class="app-catalog">
+            <div class="section-header centered">
+                <span class="section-badge">Productivity Suite</span>
+                <h2>Discover Our Apps</h2>
+                <p class="section-description">Explore our collection of powerful productivity tools designed to help you work better.</p>
+                
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="all">All Apps</button>
+                    <button class="category-tab" data-category="productivity">Productivity</button>
+                    <button class="category-tab" data-category="communication">Communication</button>
+                    <button class="category-tab" data-category="organization">Organization</button>
+                    <button class="category-tab" data-category="creativity">Creativity</button>
+                </div>
+            </div>
+
+            <div class="app-grid">
+                <a href="https://account.novasuite.one" class="app-card" data-categories="productivity,organization">
+                    <img src="https://static.wixstatic.com/media/5f23d5_0c498accc67a4c5f90879d400b26830d~mv2.png" alt="Nova Account" class="app-icon">
+                    <h3>Nova Account</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Account</span>
+                        <span class="app-tag">Security</span>
+                    </div>
+                    <p>Create and manage your Nova ID to access all services.</p>
+                    <div class="app-action">
+                        Get Started <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://search.novasuite.one" class="app-card" data-categories="productivity">
+                    <img src="https://static.wixstatic.com/media/5f23d5_5724b6ca5ab64193801259dddba35e59~mv2.png" alt="Nova Search" class="app-icon">
+                    <h3>Nova Search</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Web</span>
+                        <span class="app-tag">Research</span>
+                    </div>
+                    <p>Search the web with advanced filtering and privacy protection.</p>
+                    <div class="app-action">
+                        Start Searching <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://docs.novasuite.one" class="app-card" data-categories="productivity,creativity">
+                    <img src="https://static.wixstatic.com/media/5f23d5_908d68e048354dddb34ce90b3d523672~mv2.png" alt="Nova Docs" class="app-icon">
+                    <h3>Nova Docs</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Documents</span>
+                        <span class="app-tag">Editing</span>
+                    </div>
+                    <p>Create, edit and share documents with real-time collaboration.</p>
+                    <div class="app-action">
+                        Create Document <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://mail.novasuite.one" class="app-card" data-categories="communication">
+                    <img src="https://static.wixstatic.com/media/5f23d5_4387cca31dd1410c8680c07f39ab8089~mv2.png" alt="Nova Mail" class="app-icon">
+                    <h3>Nova Mail</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Email</span>
+                        <span class="app-tag">Communication</span>
+                    </div>
+                    <p>Secure email service with advanced organization features.</p>
+                    <div class="app-action">
+                        Check Mail <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://central.novasuite.one" class="app-card" data-categories="productivity,organization">
+                    <img src="https://static.wixstatic.com/media/5f23d5_2c357651b54642a79b15ca30041f8f21~mv2.png" alt="Nova Central" class="app-icon">
+                    <h3>Nova Central</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Dashboard</span>
+                        <span class="app-tag">Hub</span>
+                    </div>
+                    <p>Your personalized dashboard and command center.</p>
+                    <div class="app-action">
+                        Open Dashboard <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://calendar.novasuite.one" class="app-card" data-categories="organization">
+                    <img src="https://static.wixstatic.com/media/5f23d5_f7d0a950849940eea71203ee7c4c6686~mv2.png" alt="Nova Calendar" class="app-icon">
+                    <h3>Nova Calendar</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Schedule</span>
+                        <span class="app-tag">Planning</span>
+                    </div>
+                    <p>Schedule events and manage your time with smart reminders.</p>
+                    <div class="app-action">
+                        View Calendar <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://present.novasuite.one" class="app-card" data-categories="productivity,creativity">
+                    <img src="https://static.wixstatic.com/media/5f23d5_6f34bcc8616440599412855fac740dd8~mv2.png" alt="Nova Present" class="app-icon">
+                    <h3>Nova Present</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Presentations</span>
+                        <span class="app-tag">Slides</span>
+                    </div>
+                    <p>Create stunning presentations with a variety of templates.</p>
+                    <div class="app-action">
+                        Create Presentation <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="https://chat.novasuite.one" class="app-card" data-categories="communication">
+                    <img src="https://static.wixstatic.com/media/5f23d5_3bb6407775284a8e87098da85d5c8790~mv2.png" alt="Nova Chat" class="app-icon">
+                    <h3>Nova Chat</h3>
+                    <div class="app-tags">
+                        <span class="app-tag">Messaging</span>
+                        <span class="app-tag">Teams</span>
+                    </div>
+                    <p>Securely chat with teammates and collaborate in real-time.</p>
+                    <div class="app-action">
+                        Start Chatting <i class="fas fa-chevron-right"></i>
+                    </div>                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header centered">
+                <span class="section-badge">Help Center</span>
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-description">Find answers to common questions about getting started with Nova Suite.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is Nova Suite completely free to use?</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Nova Suite is completely free to use for personal and professional purposes. We do not have any hidden fees, and all core functionality is available without any payment. The platform is supported by minimal, non-intrusive advertising and optional premium features for enterprise users.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How secure is my data with Nova Suite?</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nova Suite uses industry-standard encryption for all data transmission and storage. Your files are encrypted both in transit and at rest. We implement a comprehensive security framework including regular security audits and follow strict privacy guidelines. You maintain full ownership of your data at all times.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I access Nova Suite on multiple devices?</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Nova Suite works on any device with a modern web browser. Your account and data will sync across all your devices automatically, allowing you to switch between desktop, laptop, tablet, and smartphone seamlessly. We also offer dedicated mobile apps for Android and iOS for an enhanced experience on mobile devices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Does Nova Suite work offline?</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Many Nova Suite applications include offline functionality. For example, Nova Docs allows you to create and edit documents offline, which will automatically sync when you reconnect to the internet. However, some features that require real-time data or collaboration will need an active internet connection.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I collaborate with others who don't use Nova Suite?</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Nova Suite supports collaboration with external users. You can generate shareable links that allow non-Nova users to view and edit your files based on the permissions you set. We also support importing and exporting from common file formats, making it easy to work with people using other productivity suites.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="next-steps">
+            <div class="next-steps-container">
+                <h2>Ready to Transform Your Workflow?</h2>
+                <p>Create your free Nova ID now and start exploring our suite of powerful productivity tools.</p>
+                <div class="buttons-group">
+                    <a href="https://account.novasuite.one" class="primary-button">Create Nova ID <i class="fas fa-arrow-right"></i></a>
+                    <a href="index.html#tour" class="secondary-button">Take a Tour</a>
+                    <a href="contact.html" class="secondary-button">Contact Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/get-started.js"></script>
 </body>
 </html>

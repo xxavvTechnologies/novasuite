@@ -1,0 +1,24 @@
+# robots.txt for novasuite.one
+User-agent: *
+Allow: /
+
+# Don't allow crawling of admin areas
+Disallow: /admin/
+Disallow: /blog/admin/
+
+# Don't allow crawling of functions
+Disallow: /netlify/functions/
+
+# Don't allow crawling of firebase config files
+Disallow: /js/firebase-config.js
+Disallow: /firebase/
+
+# Allow access to all other content
+Allow: /blog/
+Allow: /components/
+Allow: /css/
+Allow: /images/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://novasuite.one/sitemap.xml

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@netlify/functions": "^2.0.0",
+    "escape-html": "^1.0.3",
     "firebase": "^9.22.1",
     "firebase-admin": "^11.10.1",
-    "@netlify/functions": "^2.0.0",
-    "escape-html": "^1.0.3"
+    "marked": "^15.0.11"
   }
 }
