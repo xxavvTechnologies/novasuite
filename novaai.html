@@ -56,99 +56,170 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-.
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <div id="header-component"></div>
 
     <main>
-        <section class="hero">
-            <div class="gradient-bg nova-gradient"></div>
-            <h1>Nova AI</h1>
-            <p>The intelligence powering xxavvGroup's digital ecosystem</p>
-        </section>
-
-        <section class="intro-content">
-            <div class="content-container">
-                <p class="intro-text">Nova AI is the advanced AI foundation powering Astro, the intelligence behind the Nova App Suite. Built on our proprietary machine learning architecture, Nova AI is designed to seamlessly integrate into the xxavvTechnologies ecosystem, delivering smarter, more efficient, and responsive AI-driven experiences.</p>
+        <section class="hero-enhanced">
+            <div class="video-background">
+                <div class="video-overlay"></div>
+                <div class="gradient-overlay nova-ai-gradient"></div>
+            </div>
+            <div class="hero-content">
+                <div class="welcome-message slide-in">
+                    <span class="tagline">Intelligence Reimagined</span>
+                    <h1>Nova AI</h1>
+                    <p class="hero-description">The advanced AI foundation powering our entire ecosystem. Designed for intelligence, privacy, and seamless integration across all Nova Suite applications.</p>
+                    <div class="hero-cta">
+                        <a href="#models" class="primary-button pulse-animation">Explore Our Models <i class="fas fa-arrow-right"></i></a>
+                        <a href="astro.html" class="tour-button"><i class="fas fa-robot"></i> Meet Astro</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-ui ai-visual float-animation">
+                        <!-- AI visual representation -->
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Discover Nova AI</span>
+                <i class="fas fa-chevron-down bounce"></i>
             </div>
         </section>
-
-        <section class="astro-promo">
+          <section class="intro-content">
             <div class="content-container">
-                <h2>Experience Nova AI with Astro</h2>
-                <p>Try our AI assistant powered by Nova AI technology</p>
-                <div class="button-group">
-                    <a href="astro.html" class="primary-button">Meet Astro</a>
+                <h2 class="section-title">Powering Our Future</h2>
+                <p class="intro-text">Nova AI is our exclusive AI technology powering Astro and the entire Nova App Suite. Developed in-house and never licensed to third parties, Nova AI represents xxavvTechnologies' commitment to building our own technological foundation. This proprietary technology is designed specifically for our products, delivering smarter, more efficient, and responsive AI-driven experiences that you won't find anywhere else.</p>
+            </div>
+        </section><section class="astro-promo">
+            <div class="content-container wave-bg">
+                <div class="promo-content">
+                    <h2>Experience Nova AI with Astro</h2>
+                    <p>Our AI assistant brings Nova AI technology to life through natural conversations, creative assistance, and powerful productivity tools.</p>
+                    <div class="button-group">
+                        <a href="astro.html" class="primary-button"><i class="fas fa-robot"></i> Meet Astro</a>
+                        <a href="#capabilities" class="secondary-button">View Capabilities</a>
+                    </div>
+                </div>
+                <div class="promo-image">
+                    <div class="astro-preview float-animation"></div>
                 </div>
             </div>
         </section>
-
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <h3>Creative Assistance</h3>
-                <p>Enhanced support for drafting, editing, and brainstorming content</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Task Automation</h3>
-                <p>Streamlined workflows tailored to individual and team needs</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Data Analysis</h3>
-                <p>Quick and accurate insights to inform decisions</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>Seamless Integration</h3>
-                <p>Full compatibility with the Nova App Suite for uninterrupted productivity</p>
-            </div>
-        </section>        <section class="legacy-models">
+        
+        <section class="proprietary-section">
             <div class="content-container">
-                <h2>Our Model Evolution</h2>
+                <div class="proprietary-content">
+                    <h2 class="section-title">Built In-House, Exclusively for Us</h2>
+                    <div class="proprietary-description">
+                        <p>Nova AI is our own technology, developed exclusively for xxavvTechnologies products. Unlike other companies, we do not license our AI technology to third parties or make it available through APIs.</p>
+                        <div class="proprietary-points">
+                            <div class="proprietary-point">
+                                <i class="fas fa-lock"></i>
+                                <span>Exclusively powers xxavvGroup's ecosystem</span>
+                            </div>
+                            <div class="proprietary-point">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Developed in-house by our AI Research team</span>
+                            </div>
+                            <div class="proprietary-point">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Never shared, never licensed to others</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features-section" id="capabilities">
+            <div class="section-header">
+                <h2>Core Capabilities</h2>
+                <p class="section-subtitle">Powerful AI features that drive our ecosystem</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Creative Assistance</h3>
+                    <p>Enhanced support for drafting, editing, and brainstorming content with contextual understanding</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Task Automation</h3>
+                    <p>Streamlined workflows tailored to individual and team needs with predictive intelligence</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Data Analysis</h3>
+                    <p>Quick and accurate insights to inform decisions through advanced pattern recognition</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Seamless Integration</h3>
+                    <p>Full compatibility with the Nova App Suite for uninterrupted productivity across platforms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Privacy-First Design</h3>
+                    <p>Built with user privacy and data security as core principles from day one</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Continuous Learning</h3>
+                    <p>Self-improving algorithms that adapt to new challenges and user needs over time</p>
+                </div>
+            </div>
+        </section>        <section class="models-section" id="models">
+            <div class="bg-pattern"></div>
+            <div class="content-container">
+                <h2 class="section-title">Our Model Evolution</h2>
                 <p class="section-subtitle">Explore the rapid development of Nova AI technology since our inception in October 2024</p>
                 
-                <div class="timeline-models">
-                    <div class="model-timeline-item">
-                        <div class="model-date">Oct 2024</div>
-                        <div class="model-details">
-                            <h3>ModelA 1</h3>
-                            <p class="model-description">Our inaugural model that marked Nova AI's entry into the AI landscape, establishing our foundational capabilities.</p>
-                            <div class="model-achievements">
-                                <span class="achievement">Core text processing</span>
-                                <span class="achievement">Basic conversational skills</span>
-                                <span class="achievement">Fundamental reasoning</span>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-models">
+                        <div class="model-timeline-item slide-in">
+                            <div class="model-date">Oct 2024</div>
+                            <div class="model-details">
+                                <h3>ModelA 1</h3>
+                                <p class="model-description">Our inaugural model that marked Nova AI's entry into the AI landscape, establishing our foundational capabilities.</p>
+                                <div class="model-achievements">
+                                    <span class="achievement">Core text processing</span>
+                                    <span class="achievement">Basic conversational skills</span>
+                                    <span class="achievement">Fundamental reasoning</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="model-timeline-item">
-                        <div class="model-date">Feb 2025</div>
-                        <div class="model-details">
-                            <h3>ModelA 7</h3>
-                            <p class="model-description">After six rapid iterations, our ModelA 7 brought significant improvements in comprehension, response quality, and task handling.</p>
-                            <div class="model-achievements">
-                                <span class="achievement">Enhanced reasoning</span>
-                                <span class="achievement">Improved content generation</span>
-                                <span class="achievement">Better instruction following</span>
+                        <div class="model-timeline-item slide-in">
+                            <div class="model-date">Feb 2025</div>
+                            <div class="model-details">
+                                <h3>ModelA 7</h3>
+                                <p class="model-description">After six rapid iterations, our ModelA 7 brought significant improvements in comprehension, response quality, and task handling.</p>
+                                <div class="model-achievements">
+                                    <span class="achievement">Enhanced reasoning</span>
+                                    <span class="achievement">Improved content generation</span>
+                                    <span class="achievement">Better instruction following</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="model-timeline-item model-featured">
-                        <div class="model-date">May 2025</div>
-                        <div class="model-details">
-                            <div class="model-badge">Current</div>
-                            <h3>ModelA 8-Pro</h3>
-                            <p class="model-description">Released May 15, 2025, our most advanced model featuring enhanced context understanding, specialized conversation modes, and improved response coherence.</p>
-                            <div class="model-achievements">
-                                <span class="achievement">Complex task handling</span>
-                                <span class="achievement">Creative writing</span>
-                                <span class="achievement">Contextual awareness</span>
-                                <span class="achievement">Consistent conversations</span>
+                        <div class="model-timeline-item model-featured slide-in">
+                            <div class="model-date">May 2025</div>
+                            <div class="model-details">
+                                <div class="model-badge">Current</div>
+                                <h3>ModelA 8-Pro</h3>
+                                <p class="model-description">Released May 15, 2025, our most advanced model featuring enhanced context understanding, specialized conversation modes, and improved response coherence.</p>
+                                <div class="model-achievements">
+                                    <span class="achievement">Complex task handling</span>
+                                    <span class="achievement">Creative writing</span>
+                                    <span class="achievement">Contextual awareness</span>
+                                    <span class="achievement">Consistent conversations</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,55 +240,113 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="showcase">
-            <div class="showcase-item">
-                <div class="showcase-content">
-                    <h2>Advanced Capabilities</h2>
-                    <div class="capability-list">
-                        <div class="capability-item">
-                            <h3>Adaptive Learning</h3>
-                            <p>Nova AI uses advanced natural language processing (NLP) to understand and adapt to user preferences, providing a personalized experience that grows smarter over time.</p>
-                        </div>
-                        <div class="capability-item">
-                            <h3>Enhanced Collaboration</h3>
-                            <p>With Nova AI, teamwork becomes effortless. Features such as intelligent suggestions, real-time document collaboration, and contextual task recommendations are designed to enhance group productivity.</p>
+        </section>        <section class="all-models">
+            <div class="bg-pattern"></div>
+            <div class="content-container">
+                <h2 class="section-title">Our Complete Model Lineup</h2>
+                <p class="section-subtitle">The full range of Nova AI models powering our technology ecosystem</p>
+                
+                <div class="models-card">
+                    <div class="models-list">
+                        <div class="model-item">ModelA 1</div>
+                        <div class="model-item">ModelA 2</div>
+                        <div class="model-item">ModelA 3</div>
+                        <div class="model-item">ModelA 4</div>
+                        <div class="model-item">ModelA 5</div>
+                        <div class="model-item">ModelA 5-Pro</div>
+                        <div class="model-item">ModelA 6</div>
+                        <div class="model-item">ModelA 6-Nano</div>
+                        <div class="model-item">ModelA 7</div>
+                        <div class="model-item">ModelA 8</div>
+                        <div class="model-item model-current">
+                            ModelA 8-Pro
+                            <span class="current-badge">Latest</span>
                         </div>
                     </div>
+                    <div class="model-info">
+                        <p>Our AI models are continuously evolving, with each generation bringing significant improvements in capabilities, performance, and efficiency.</p>
+                        <a href="#" class="text-link">Learn more about our model development <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="showcase-image">
-                    <div class="floating-ui float-animation"></div>
+            </div>
+        </section>        <section class="showcase">
+            <div class="content-container">
+                <div class="showcase-item">
+                    <div class="showcase-content">
+                        <h2 class="section-title">Advanced Capabilities</h2>
+                        <div class="capability-list">
+                            <div class="capability-item">
+                                <div class="capability-icon"><i class="fas fa-brain"></i></div>
+                                <div class="capability-text">
+                                    <h3>Adaptive Learning</h3>
+                                    <p>Nova AI uses advanced natural language processing (NLP) to understand and adapt to user preferences, providing a personalized experience that grows smarter over time.</p>
+                                </div>
+                            </div>
+                            <div class="capability-item">
+                                <div class="capability-icon"><i class="fas fa-users-gear"></i></div>
+                                <div class="capability-text">
+                                    <h3>Enhanced Collaboration</h3>
+                                    <p>With Nova AI, teamwork becomes effortless. Features such as intelligent suggestions, real-time document collaboration, and contextual task recommendations are designed to enhance group productivity.</p>
+                                </div>
+                            </div>
+                            <div class="capability-item">
+                                <div class="capability-icon"><i class="fas fa-lightbulb"></i></div>
+                                <div class="capability-text">
+                                    <h3>Contextual Understanding</h3>
+                                    <p>Our AI can maintain context across long conversations and complex documents, delivering more coherent and relevant responses than ever before.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-image">
+                        <div class="floating-ui float-animation"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="performance-section">
-            <h2>Engineered for Performance</h2>
-            <div class="performance-grid">
-                <div class="performance-card">
-                    <span class="highlight">🔹</span>
-                    <h3>Optimized for Nova Apps</h3>
-                    <p>Designed to deliver fast responses and smooth interactions across all supported platforms</p>
-                </div>
-                <div class="performance-card">
-                    <span class="highlight">🔹</span>
-                    <h3>Lightweight & Efficient</h3>
-                    <p>Built for speed and responsiveness while maintaining high accuracy</p>
-                </div>
-                <div class="performance-card">
-                    <span class="highlight">🔹</span>
-                    <h3>Security & Privacy Focused</h3>
-                    <p>Built with safeguards to ensure secure and responsible AI usage</p>
+            <div class="content-container">
+                <h2 class="section-title">Engineered for Performance</h2>
+                <p class="section-subtitle">Built from the ground up with efficiency and reliability in mind</p>
+                
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <span class="highlight"><i class="fas fa-rocket"></i></span>
+                        <h3>Optimized for Nova Apps</h3>
+                        <p>Designed to deliver fast responses and smooth interactions across all supported platforms</p>
+                    </div>
+                    <div class="performance-card">
+                        <span class="highlight"><i class="fas fa-feather"></i></span>
+                        <h3>Lightweight & Efficient</h3>
+                        <p>Built for speed and responsiveness while maintaining high accuracy</p>
+                    </div>
+                    <div class="performance-card">
+                        <span class="highlight"><i class="fas fa-shield-alt"></i></span>
+                        <h3>Security & Privacy Focused</h3>
+                        <p>Built with safeguards to ensure secure and responsible AI usage</p>
+                    </div>                    <div class="performance-card">
+                        <span class="highlight"><i class="fas fa-server"></i></span>
+                        <h3>Internal Deployment</h3>
+                        <p>Powering our cloud services and on-premise solutions to meet our diverse product needs</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="future-section">
             <div class="content-container">
-                <h2>Powering Our Future in AI</h2>
-                <p>From improving search results to refining text generation, Nova AI enables the next generation of creative and productivity tools. Nova AI continues to evolve, with more enhancements coming soon.</p>
-                <a href="https://tech.xxavvgroup.com" class="primary-button">Stay Updated with xxavvTechnologies</a>
+                <div class="future-content">
+                    <h2 class="section-title">Powering Our Future in AI</h2>
+                    <p>From improving search results to refining text generation, Nova AI enables the next generation of creative and productivity tools. Nova AI continues to evolve, with more enhancements coming soon.</p>
+                    <div class="future-action">
+                        <a href="https://tech.xxavvgroup.com" class="primary-button">Stay Updated <i class="fas fa-arrow-right"></i></a>
+                        <a href="get-started.html" class="secondary-button">Try Nova Suite</a>
+                    </div>
+                </div>
+                <div class="future-visual">
+                    <div class="progress-visual float-animation"></div>
+                </div>
             </div>
         </section>
     </main>
