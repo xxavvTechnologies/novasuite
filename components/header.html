@@ -3,8 +3,17 @@
         <a href="/" class="logo">
             <img src="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png" alt="Nova Suite">
         </a>
-        <div class="nav-links">            <div class="has-submenu">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+        </button>
+        <div class="nav-links">
+            <div class="has-submenu">
                 <a href="/astro.html">AI & Tech</a>
+                <button class="submenu-toggle" aria-label="Toggle submenu">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="submenu">
                     <a href="/astro.html">Astro</a>
                     <a href="/novaai.html">Nova AI</a>
@@ -15,5 +24,6 @@
             <a href="/id.html">Nova ID</a>
             <a href="/get-started.html" class="cta-button">Get Started - It's Free</a>
         </div>
+        <div class="mobile-backdrop"></div>
     </nav>
 </header>
