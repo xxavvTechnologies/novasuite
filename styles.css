@@ -114,47 +114,6 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1001;
 }
 
-/* Fix mobile viewport width issue */
-@media (max-width: 991px) {
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-    
-    .navbar {
-        width: 100%;
-        max-width: 100vw;
-        box-sizing: border-box;
-        left: 0;
-        right: 0;
-    }
-    
-    /* Ensure logo is responsive */
-    .logo {
-        max-width: 70%;
-        overflow: hidden;
-    }
-    
-    .logo img {
-        max-width: 100%;
-        height: auto;
-        max-height: 32px;
-    }
-    
-    /* Prevent horizontal scrolling */
-    main {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    
-    /* Ensure mobile menu toggle is visible and properly positioned */
-    .mobile-menu-toggle {
-        position: absolute;
-        right: 1.25rem;
-    }
-}
-
 .toggle-line {
     width: 100%;
     height: 3px;
@@ -342,6 +301,47 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .nav-links.active ~ .mobile-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 1rem 1.25rem;
+    }
+    
+    .logo img {
+        height: 28px;
+    }
+    
+    /* Additional optimizations for very small screens */
+    .nav-links {
+        width: 90%;
+        padding: 5rem 1.5rem 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.6rem 0;
+    }
+    
+    /* Add spacing below the navbar */
+    main {
+        padding-top: 70px;
+    }
+    
+    /* Ensure fixed header doesn't overlap with page content */
+    :target {
+        scroll-margin-top: 70px;
+    }
     
     /* Fix for iOS Safari */
     .mobile-menu-toggle:focus {
@@ -1498,5 +1498,4 @@ h1, h2, h3, h4, h5, h6 {
     .transformation-button {
         width: 100%;
     }
-}
 }
