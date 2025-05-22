@@ -17,8 +17,11 @@ async function loadComponent(path, targetId) {
         if (targetId === 'header-component') {
             initMobileMenu();
         }
+        
+        return Promise.resolve();
     } catch (error) {
         console.error('Error loading component:', error);
+        return Promise.reject(error);
     }
 }
 
@@ -81,8 +84,41 @@ function initMobileMenu() {
     }
 }
 
+/**
+ * Initialize footer mobile accordion functionality
+ */
+function initFooterAccordion() {
+    // Wait a short time for the footer to be fully loaded
+    setTimeout(() => {
+        const footerColumns = document.querySelectorAll('.footer-column');
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            footerColumns.forEach(column => {
+                const heading = column.querySelector('h4');
+                if (!heading) return;
+                
+                heading.addEventListener('click', () => {
+                    // Toggle this column
+                    column.classList.toggle('active');
+                    heading.classList.toggle('active');
+                });
+            });
+        }
+    }, 300);
+}
+
 // Initialize components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('./components/header.html', 'header-component');
-    loadComponent('./components/footer.html', 'footer-component');
+    loadComponent('./components/footer.html', 'footer-component').then(() => {
+        initFooterAccordion();
+    });
+    
+    // Re-initialize on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            initFooterAccordion();
+        }
+    });
 });

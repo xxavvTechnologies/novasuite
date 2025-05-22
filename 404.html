@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <meta name="description" content="The page you're looking for doesn't exist or has been moved. Return to the Nova Suite homepage to continue your journey.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Page Not Found | Nova Suite">
+    <meta property="og:description" content="The page you're looking for doesn't exist or has been moved. Return to the Nova Suite homepage to continue your journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://novasuite.one/404.html">
+    <meta property="og:image" content="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Page Not Found | Nova Suite">
+    <meta name="twitter:description" content="The page you're looking for doesn't exist or has been moved. Return to the Nova Suite homepage to continue your journey.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://novasuite.one/404.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(45deg, var(--nova-primary), var(--astro-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 3s infinite;
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            margin: 1.5rem 0;
+            color: var(--nova-secondary);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .suggestion-links {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .suggestion-links h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .suggested-pages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .suggested-page {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .suggested-page:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .suggested-page i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--nova-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-icon {
+                font-size: 3rem;
+            }
+            
+            .error-message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <div class="error-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <p class="error-message">Houston, we have a problem. The page you're looking for has drifted off into space or never existed in our universe.</p>
+            
+            <div class="error-actions">
+                <a href="/" class="primary-button">
+                    <i class="fas fa-home"></i> Return Home
+                </a>
+                <a href="/transformation.html" class="secondary-button">
+                    <i class="fas fa-bolt"></i> Learn About Our Transformation
+                </a>
+            </div>
+            
+            <div class="suggestion-links">
+                <h3>You might be looking for:</h3>
+                <div class="suggested-pages">
+                    <a href="/astro.html" class="suggested-page">
+                        <i class="fas fa-robot"></i>
+                        <p>Astro</p>
+                    </a>
+                    <a href="/novaai.html" class="suggested-page">
+                        <i class="fas fa-brain"></i>
+                        <p>Nova AI</p>
+                    </a>
+                    <a href="/blog" class="suggested-page">
+                        <i class="fas fa-blog"></i>
+                        <p>Blog</p>
+                    </a>
+                    <a href="/transformation.html" class="suggested-page">
+                        <i class="fas fa-bolt"></i>
+                        <p>Migration & Transition</p>
+                    </a>
+                    <a href="/get-started.html" class="suggested-page">
+                        <i class="fas fa-rocket"></i>
+                        <p>Get Started</p>
+                    </a>
+                    <a href="/status.html" class="suggested-page">
+                        <i class="fas fa-signal"></i>
+                        <p>System Status</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="js/components.js"></script>
+    <script src="script.js"></script>    <!-- No need for additional script - components.js handles everything -->
+    
+</body>
+</html>
