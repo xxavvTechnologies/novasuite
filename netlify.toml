@@ -3,6 +3,12 @@
   functions = "netlify/functions"
   command = "# no build command needed"
 
+# Clean URLs configuration
+[build.processing]
+  skip_processing = false
+[build.processing.html]
+  pretty_urls = true
+
 [[redirects]]
   from = "/astro"
   to = "/astro.html"
@@ -32,6 +38,106 @@
   from = "/privacy-policy"
   to = "/privacy-policy.html"
   status = 200
+
+[[redirects]]
+  from = "/transformation"
+  to = "/transformation.html"
+  status = 200
+
+[[redirects]]
+  from = "/nsplus"
+  to = "/nsplus.html"
+  status = 200
+  
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+# Redirects from .html URLs to clean URLs
+[[redirects]]
+  from = "/astro.html"
+  to = "/astro"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/novaai.html"
+  to = "/novaai"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/id.html"
+  to = "/id"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/get-started.html"
+  to = "/get-started"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/status.html"
+  to = "/status"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/transformation.html"
+  to = "/transformation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nsplus.html"
+  to = "/nsplus"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/security.html"
+  to = "/security"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/report.html"
+  to = "/report"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/community.html"
+  to = "/community"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/opensource.html"
+  to = "/opensource"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/careers.html"
+  to = "/careers"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"

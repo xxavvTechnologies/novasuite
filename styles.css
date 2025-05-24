@@ -63,6 +63,31 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.3s ease;
 }
 
+.nav-links .premium-link {
+    color: #9747FF;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links .premium-link:hover {
+    color: #b47aff;
+}
+
+.nav-links .premium-link .coming-soon-tag {
+    font-size: 0.6rem;
+    background: linear-gradient(90deg, #ff00dd, #7000ff);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .nav-links .cta-button {
     background: var(--primary);
     padding: 0.8rem 1.5rem;
@@ -822,6 +847,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-column a:hover {
     color: var(--nova-primary);
+}
+
+.footer-column .new-badge {
+    font-size: 0.6rem;
+    background: linear-gradient(90deg, #ff00dd, #7000ff);
+    color: white;
+    padding: 0.15rem 0.3rem;
+    border-radius: 3px;
+    margin-left: 0.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: text-top;
 }
 
 .footer-bottom {
