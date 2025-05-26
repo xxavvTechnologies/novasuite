@@ -56,37 +56,31 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
 }
 
+/* Desktop Navigation Links Container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .nav-links a {
     color: var(--text);
     text-decoration: none;
-    margin-left: 2rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links .premium-link {
-    color: #9747FF;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
     transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
 }
 
-.nav-links .premium-link:hover {
-    color: #b47aff;
+.nav-links a:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
 }
 
-.nav-links .premium-link .coming-soon-tag {
-    font-size: 0.6rem;
-    background: linear-gradient(90deg, #ff00dd, #7000ff);
-    color: white;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+
 
 .nav-links .cta-button {
     background: var(--primary);
@@ -115,14 +109,142 @@ h1, h2, h3, h4, h5, h6 {
     top: 100%;
     left: 0;
     background: var(--surface);
-    border-radius: 8px;
-    padding: 0.5rem;
-    min-width: 150px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .has-submenu:hover .submenu {
-    display: block;
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    animation: submenuSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes submenuSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.has-submenu > a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.has-submenu:hover > a {
+    color: var(--nova-primary);
+}
+
+.submenu-section h4 {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submenu-section a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin: 0 !important;
+    white-space: nowrap;
+    opacity: 0;
+    animation: submenuItemSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.submenu-section a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.submenu-section a i {
+    margin-right: 0.75rem;
+    font-size: 0.9rem;
+    width: 16px;
+    opacity: 0.7;
+}
+
+.submenu-section .premium-item {
+    color: #9747FF !important;
+}
+
+.submenu-section .premium-item:hover {
+    background: rgba(151, 71, 255, 0.1) !important;
+}
+
+.submenu-section .labs-item {
+    color: #8b5cf6 !important;
+}
+
+.submenu-section .labs-item:hover {
+    background: rgba(139, 92, 246, 0.1) !important;
+}
+
+.coming-soon-badge {
+    font-size: 0.6rem;
+    background: linear-gradient(90deg, #ff00dd, #7000ff);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rd-badge {
+    font-size: 0.6rem;
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-item {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
 }
 
 /* Mobile Menu Styles */
@@ -271,21 +393,45 @@ h1, h2, h3, h4, h5, h6 {
     .submenu-toggle {
         display: inline-block;
     }
-    
-    .nav-links .submenu {
+      .nav-links .submenu {
         display: none;
         position: static;
         width: 100%;
         box-shadow: none;
         padding: 0;
         background: rgba(40, 40, 60, 0.5);
-        border-radius: 0;
+        border-radius: 8px;
         margin-top: 0.5rem;
-        padding: 0.5rem 0 0.5rem 1rem;
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
     }
     
     .has-submenu.submenu-active .submenu {
-        display: block;
+        display: grid;
+    }
+    
+    .submenu-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+    }
+    
+    .submenu-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .submenu-section h4 {
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .submenu-section a {
+        padding: 0.5rem 0 !important;
+        font-size: 0.95rem;
     }
     
     .nav-links .has-submenu:hover .submenu {
@@ -1766,7 +1912,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(0, 46, 255, 0.1), rgba(255, 191, 0, 0.05));
+    background: linear-gradient(135deg, rgba(0, 46, 255, 0.1), rgba(0, 46, 255, 0.05));
     color: var(--text);
 }
 
@@ -2399,4 +2545,45 @@ h1, h2, h3, h4, h5, h6 {
 .proprietary-point span {
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+/* Staggered submenu animations */
+.submenu-section a {
+    opacity: 0;
+    animation: submenuItemSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.has-submenu:hover .submenu-section:nth-child(1) a:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+.has-submenu:hover .submenu-section:nth-child(1) a:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.has-submenu:hover .submenu-section:nth-child(1) a:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+.has-submenu:hover .submenu-section:nth-child(2) a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.has-submenu:hover .submenu-section:nth-child(2) a:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.has-submenu:hover .submenu-section:nth-child(2) a:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes submenuItemSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

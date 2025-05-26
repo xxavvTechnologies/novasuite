@@ -42,22 +42,55 @@ function initMobileMenu() {
             navLinks.classList.toggle('active');
             body.classList.toggle('menu-open');
         });
-        
-        // Handle submenu toggles on mobile
+          // Handle submenu toggles on mobile
         const submenuToggles = document.querySelectorAll('.submenu-toggle');
         submenuToggles.forEach(toggle => {
             toggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 const parent = toggle.closest('.has-submenu');
+                
+                // Close other submenus
+                const allSubmenus = document.querySelectorAll('.has-submenu');
+                allSubmenus.forEach(submenu => {
+                    if (submenu !== parent) {
+                        submenu.classList.remove('submenu-active');
+                    }
+                });
+                
+                // Toggle current submenu
                 parent.classList.toggle('submenu-active');
+                
+                // Rotate the chevron icon
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.style.transform = parent.classList.contains('submenu-active') 
+                        ? 'rotate(180deg)' 
+                        : 'rotate(0deg)';
+                }
             });
         });
         
-        // Close menu when clicking on a link
-        const mobileNavLinks = navLinks.querySelectorAll('a:not(.has-submenu > a)');
+        // Close submenus when clicking outside on desktop
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.has-submenu') && window.innerWidth > 991) {
+                const allSubmenus = document.querySelectorAll('.has-submenu');
+                allSubmenus.forEach(submenu => {
+                    submenu.classList.remove('submenu-active');
+                });
+            }
+        });
+          // Close menu when clicking on a link (but not submenu parent links)
+        const mobileNavLinks = navLinks.querySelectorAll('a:not(.has-submenu > a), .submenu a');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
+                // Close all submenus
+                const allSubmenus = document.querySelectorAll('.has-submenu');
+                allSubmenus.forEach(submenu => {
+                    submenu.classList.remove('submenu-active');
+                });
+                
+                // Close mobile menu
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
                 body.classList.remove('menu-open');
