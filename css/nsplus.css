@@ -1,52 +1,153 @@
 /* Nova Suite Plus specific styles */
 
 .nsplus-gradient {
-    background: radial-gradient(circle at 50% 50%, 
-                rgba(120, 0, 255, 0.8), 
-                rgba(80, 0, 170, 0.6),
-                rgba(40, 0, 100, 0.4));
-    animation: pulse 15s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.7;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.9;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 0.7;
-        transform: scale(1);
-    }
+    background: radial-gradient(circle at center, rgba(120, 0, 255, 0.2), transparent 60%),
+                radial-gradient(circle at 25% 25%, rgba(255, 0, 221, 0.15), transparent 40%),
+                radial-gradient(circle at 75% 75%, rgba(112, 0, 255, 0.1), transparent 50%);
 }
 
 .nsplus-hero {
-    min-height: 90vh;
+    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 6rem 1rem;
-    position: relative;
+    align-items: center;
     overflow: hidden;
 }
 
-.nsplus-hero h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    margin: 1rem 0;
-    letter-spacing: -0.5px;
-    color: #fff;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+.nsplus-hero .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.nsplus-hero .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 15, 0.85);
+}
+
+.nsplus-hero .hero-content {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
     z-index: 2;
+}
+
+.nsplus-hero .welcome-message {
+    max-width: 600px;
+}
+
+.nsplus-hero .welcome-message .tagline {
+    font-size: 1.2rem;
+    color: #e0ccff;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.nsplus-hero .welcome-message h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
     background: linear-gradient(90deg, #fff, #d4b6ff);
-    background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+}
+
+.nsplus-hero .hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 90%;
+}
+
+.nsplus-hero .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nsplus-hero .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.nsplus-ui-preview {
+    width: 400px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 20px 40px rgba(120, 0, 255, 0.3);
+}
+
+.premium-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.premium-badge i {
+    font-size: 1.3rem;
+}
+
+.nsplus-hero .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+}
+
+.nsplus-hero .scroll-indicator span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.nsplus-hero .scroll-indicator i {
+    font-size: 1.5rem;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 .coming-soon-badge {
@@ -57,98 +158,63 @@
     border-radius: 2rem;
     margin-bottom: 1rem;
     box-shadow: 0 5px 15px rgba(112, 0, 255, 0.5);
-    transform: translateY(-20px);
-    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+    animation: pulse 2s infinite;
     z-index: 2;
 }
 
-@keyframes float {
+@keyframes pulse {
     0% {
-        transform: translateY(-20px);
+        box-shadow: 0 0 0 0 rgba(112, 0, 255, 0.7);
     }
-    50% {
-        transform: translateY(-30px);
+    70% {
+        box-shadow: 0 0 0 10px rgba(112, 0, 255, 0);
     }
     100% {
-        transform: translateY(-20px);
+        box-shadow: 0 0 0 0 rgba(112, 0, 255, 0);
     }
 }
 
-.hero-tagline {
-    font-size: 1.5rem;
-    color: #e0ccff;
-    margin-bottom: 3rem;
-    max-width: 800px;
-    z-index: 2;
-}
-
-.countdown-container {
-    margin: 2rem 0;
-    z-index: 2;
-}
-
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 1rem 1.5rem;
-    min-width: 80px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.countdown-item span:first-child {
-    font-size: 2.5rem;
-    font-weight: 700;
+.tour-button {
     color: #fff;
-    margin-bottom: 0.25rem;
-}
-
-.countdown-item span:last-child {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    z-index: 2;
-    margin-top: 1rem;
-}
-
-.text-button {
-    color: white;
     text-decoration: none;
-    display: flex;
+    font-weight: 500;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 500;
-    padding: 0.75rem 1rem;
-    position: relative;
     transition: all 0.3s ease;
 }
 
-.text-button::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transition: width 0.3s ease;
+.tour-button i {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nsplus-hero .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .nsplus-hero .welcome-message h1 {
+        font-size: 3rem;
+    }
+    
+    .nsplus-hero .welcome-message {
+        max-width: 100%;
+    }
+    
+    .nsplus-ui-preview {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .nsplus-hero .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 .text-button:hover::after {
