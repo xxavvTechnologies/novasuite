@@ -128,14 +128,89 @@
     color: var(--nova-primary);
 }
 
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints for crypto page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    .notice-container {
+        max-width: 100%;
+        padding: 1rem;
+        overflow-x: hidden;
+    }
+    
     .warning-banner {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem;
+        gap: 1rem;
+        max-width: 100%;
     }
+    
+    .warning-icon {
+        font-size: 2rem;
+    }
+    
+    .warning-banner p {
+        font-size: 1rem;
+    }
+    
+    .statement-points {
+        gap: 1rem;
+        max-width: 100%;
+    }
+    
+    .point {
+        padding: 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .point h3 {
+        font-size: 1.2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    /* Ensure sections have proper padding */
+    .position-statement,
+    .security-section,
+    .disclaimer-section {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    /* Prevent any element from exceeding viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+}
 
-    .contact-options {
-        grid-template-columns: 1fr;
+@media (max-width: 480px) {
+    .notice-container {
+        padding: 0.5rem;
+    }
+    
+    .warning-banner {
+        padding: 1rem;
+    }
+    
+    .warning-icon {
+        font-size: 1.8rem;
+    }
+    
+    .point {
+        padding: 0.8rem;
     }
 }

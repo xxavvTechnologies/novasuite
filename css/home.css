@@ -1581,6 +1581,18 @@
 }
 
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints for home page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    /* Typography and layout fixes */
     .welcome-message h1 {
         font-size: 3rem;
     }
@@ -1592,6 +1604,20 @@
     .hero-cta {
         flex-direction: column;
         gap: 1rem;
+        max-width: 100%;
+    }
+    
+    /* Force all grids to single column */
+    .feature-grid,
+    .apps-container,
+    .apps-showcase-grid,
+    .community-grid,
+    .integrations-grid,
+    .testimonials-slider,
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     .feature-grid {
@@ -1602,27 +1628,37 @@
         grid-template-columns: 1fr;
     }
     
+    /* App categories horizontal scroll fix */
     .app-categories {
         overflow-x: auto;
         padding-bottom: 1rem;
+        max-width: 100%;
     }
     
     .category-tabs {
         flex-wrap: nowrap;
         width: max-content;
+        max-width: none;
     }
     
+    /* CTA buttons */
     .cta-buttons {
         flex-direction: column;
+        max-width: 100%;
     }
     
+    /* Integrations grid special handling */
     .integrations-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+        gap: 1rem;
+        max-width: 100%;
+        justify-items: center;
     }
     
     .integration-logo {
         width: 80px;
         height: 80px;
+        max-width: 100%;
     }
     
     .integration-logo img {
@@ -1630,16 +1666,69 @@
         height: 50px;
     }
     
+    /* Dashboard section */
     .dashboard-floating-ui {
         width: 100%;
         height: 400px;
+        max-width: 100%;
     }
     
     .dashboard-widgets {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        max-width: 100%;
     }
     
     .dashboard-widget.astro {
         grid-column: span 1;
+    }
+    
+    /* Hero and content sections */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .hero-visual {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Floating UI elements */
+    .floating-ui,
+    .astro-floating-ui,
+    .id-card {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Ensure sections have proper padding */
+    section, .section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Cards and components */
+    .app-card,
+    .feature-card,
+    .testimonial-card,
+    .community-card,
+    .blog-placeholder {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent any element from exceeding viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
     }
 }

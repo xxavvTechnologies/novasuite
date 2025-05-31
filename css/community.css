@@ -85,12 +85,77 @@
     margin-bottom: 1.5rem;
 }
 
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints for community page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
     .community-container {
+        max-width: 100%;
+        padding: 1rem;
+        overflow-x: hidden;
+    }
+    
+    /* Force all grids to single column */
+    .community-section:first-child,
+    .guidelines-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .community-card {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.5rem;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .community-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Ensure sections have proper padding */
+    .community-section {
+        max-width: 100%;
+        margin: 2rem 0;
+    }
+    
+    /* Prevent any element from exceeding viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .community-container {
+        padding: 0.5rem;
+    }
+    
+    .community-card {
         padding: 1rem;
     }
-
-    .community-section {
-        margin: 2rem 0;
+    
+    .card-icon {
+        font-size: 1.8rem;
+    }
+    
+    .community-card h2 {
+        font-size: 1.3rem;
     }
 }

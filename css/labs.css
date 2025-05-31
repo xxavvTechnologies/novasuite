@@ -786,10 +786,36 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints for labs page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    /* Container and section constraints */
+    .container, section, div {
+        max-width: 100% !important;
+        overflow-x: hidden;
+    }
+    
+    /* Force all grids to single column */
+    .labs-focus-grid,
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
     .labs-hero .container {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        max-width: 100%;
     }
     
     .labs-hero-title {
@@ -800,6 +826,7 @@
     .contribute-content {
         grid-template-columns: 1fr;
         gap: 40px;
+        max-width: 100%;
     }
     
     .labs-focus-grid,
@@ -809,11 +836,13 @@
     
     .form-group {
         flex-direction: column;
+        max-width: 100%;
     }
     
     .community-circle {
         width: 150px;
         height: 150px;
+        max-width: 100%;
     }
     
     .community-member {
@@ -825,6 +854,14 @@
         width: 45px;
         height: 45px;
         font-size: 10px;
+    }
+    
+    /* Ensure padding doesn't cause overflow */
+    section, .section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
 

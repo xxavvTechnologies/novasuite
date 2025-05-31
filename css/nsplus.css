@@ -192,28 +192,136 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints for nsplus page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
     .nsplus-hero .hero-content {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
-    }
-    
-    .nsplus-hero .welcome-message h1 {
-        font-size: 3rem;
+        padding: 1rem;
+        max-width: 100%;
     }
     
     .nsplus-hero .welcome-message {
         max-width: 100%;
     }
     
-    .nsplus-ui-preview {
-        width: 300px;
-        height: 200px;
+    .nsplus-hero .welcome-message h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nsplus-hero .hero-description {
+        font-size: 1rem;
     }
     
     .nsplus-hero .hero-cta {
         flex-direction: column;
         gap: 1rem;
+        max-width: 100%;
+    }
+    
+    .nsplus-hero .hero-visual {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Force all grids to single column */
+    .tiers-grid,
+    .features-grid,
+    .comparison-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .tier-card,
+    .feature-card,
+    .benefit-card {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Pricing sections */
+    .pricing-section .container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .tier-card {
+        padding: 1.5rem;
+    }
+    
+    .tier-price {
+        font-size: 2rem;
+    }
+    
+    /* Comparison table fixes */
+    .comparison-table {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    
+    .comparison-table table {
+        min-width: 600px;
+    }
+    
+    /* Features showcase */
+    .features-showcase .container {
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 100%;
+    }
+    
+    .features-text,
+    .features-visual {
+        max-width: 100%;
+    }
+    
+    /* Ensure sections have proper padding */
+    section, .section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent any element from exceeding viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nsplus-hero .welcome-message h1 {
+        font-size: 2rem;
+    }
+    
+    .tier-card {
+        padding: 1rem;
+    }
+    
+    .tier-price {
+        font-size: 1.8rem;
+    }
+    
+    .feature-list li {
+        font-size: 0.9rem;
     }
 }
 
@@ -419,36 +527,135 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .nsplus-hero h1 {
-        font-size: 3rem;
+    /* Global mobile viewport constraints for nsplus page */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
-    .hero-tagline {
-        font-size: 1.2rem;
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
     }
     
-    .countdown {
-        gap: 0.5rem;
+    .nsplus-hero .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 1rem;
+        max-width: 100%;
     }
     
-    .countdown-item {
-        min-width: 60px;
-        padding: 0.75rem;
+    .nsplus-hero .welcome-message {
+        max-width: 100%;
     }
     
-    .countdown-item span:first-child {
+    .nsplus-hero .welcome-message h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nsplus-hero .hero-description {
+        font-size: 1rem;
+    }
+    
+    .nsplus-hero .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 100%;
+    }
+    
+    .nsplus-hero .hero-visual {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Force all grids to single column */
+    .tiers-grid,
+    .features-grid,
+    .comparison-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .tier-card,
+    .feature-card,
+    .benefit-card {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Pricing sections */
+    .pricing-section .container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .tier-card {
+        padding: 1.5rem;
+    }
+    
+    .tier-price {
+        font-size: 2rem;
+    }
+    
+    /* Comparison table fixes */
+    .comparison-table {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    
+    .comparison-table table {
+        min-width: 600px;
+    }
+    
+    /* Features showcase */
+    .features-showcase .container {
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 100%;
+    }
+    
+    .features-text,
+    .features-visual {
+        max-width: 100%;
+    }
+    
+    /* Ensure sections have proper padding */
+    section, .section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent any element from exceeding viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nsplus-hero .welcome-message h1 {
+        font-size: 2rem;
+    }
+    
+    .tier-card {
+        padding: 1rem;
+    }
+    
+    .tier-price {
         font-size: 1.8rem;
     }
     
-    .countdown-item span:last-child {
-        font-size: 0.7rem;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-cta {
-        flex-direction: column;
+    .feature-list li {
+        font-size: 0.9rem;
     }
 }

@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap');
 
+/* Global viewport constraints to prevent horizontal overflow */
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Prevent any container from exceeding viewport width */
+* {
+    box-sizing: border-box;
+}
+
+*:not(html):not(body) {
+    max-width: 100%;
+}
+
 :root {
     --nova-primary: #002eff;
     --nova-secondary: #febf00;
@@ -490,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .logo img {
-        height: 28px;
+        height: 22px;
     }
     
     /* Additional optimizations for very small screens */
@@ -517,6 +539,17 @@ h1, h2, h3, h4, h5, h6 {
     /* Fix for iOS Safari */
     .mobile-menu-toggle:focus {
         outline: none;
+    }
+}
+
+/* Extra mobile optimization for logo */
+@media (max-width: 480px) {
+    .logo img {
+        height: 20px !important;
+    }
+    
+    .navbar {
+        padding: 0.75rem 1rem;
     }
 }
 
@@ -1663,6 +1696,110 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    /* Global mobile viewport constraints to prevent horizontal overflow */
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Container and section constraints */
+    .container, section, div, main {
+        max-width: 100% !important;
+        overflow-x: hidden;
+    }
+    
+    /* Force all grids to single column with viewport-safe constraints */
+    .features-grid,
+    .apps-showcase-grid,
+    .community-grid,
+    .stats-grid,
+    .tools-grid,
+    .use-cases-grid,
+    .integrations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Ensure all elements respect mobile viewport */
+    img, video, iframe, embed, object {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+    }
+    
+    /* Fix any potential flex overflow */
+    .flex, [class*="flex"] {
+        flex-wrap: wrap !important;
+        max-width: 100%;
+    }
+    
+    /* Ensure padding doesn't cause overflow */
+    section, .section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Card and component constraints */
+    .feature-card,
+    .app-card,
+    .tool-card,
+    .use-case-card,
+    .spec-card,
+    .model-timeline-item {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+      /* Navigation fixes */
+    .navbar {
+        padding: 1rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Logo size fix for mobile */
+    .logo img {
+        height: 24px !important;
+        width: auto;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .mobile-nav {
+        display: flex;
+    }
+    
+    /* Typography adjustments */
+    .hero-section h1, h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Benchmark and model grids */
     .benchmark-grid {
         grid-template-columns: 1fr;
     }
@@ -2329,18 +2466,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    /* Additional mobile viewport fixes for specific components */
     .models-list {
         gap: 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     .model-item {
         font-size: 0.9rem;
         padding: 0.8rem 1.2rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .capability-item {
         flex-direction: column;
         gap: 1rem;
+        max-width: 100%;
     }
     
     .capability-icon {
@@ -2349,17 +2492,65 @@ h1, h2, h3, h4, h5, h6 {
     
     .performance-grid {
         grid-template-columns: 1fr;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     .legacy-stats {
         flex-direction: column;
         gap: 2rem;
+        max-width: 100%;
+    }
+    
+    /* Dashboard specific fixes */
+    .dashboard-content {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .dashboard-floating-ui {
+        width: 100%;
+        max-width: 350px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Hero content fixes */
+    .hero-content {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .showcase-item,
+    .astro-promo .content-container,
+    .future-section .content-container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .timeline-models {
+        flex-direction: column;
+        gap: 3rem;
+        max-width: 100%;
+    }
+    
+    .model-timeline-item {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .ai-visual, .astro-preview, .progress-visual {
+        width: 300px;
+        height: 300px;
+        max-width: 100%;
     }
     
     /* Footer Mobile Styles */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 3rem;
+        max-width: 100%;
     }
     
     .footer-logo {
@@ -2370,11 +2561,13 @@ h1, h2, h3, h4, h5, h6 {
     .footer-links {
         grid-template-columns: 1fr;
         gap: 2rem;
+        max-width: 100%;
     }
     
     .footer-column {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding-bottom: 1.5rem;
+        max-width: 100%;
     }
     
     .footer-column h4 {
