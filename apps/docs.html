@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Docs - Document Editor & Collaboration | Nova Suite</title>
+    <link rel="icon" type="image/x-icon" href="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
+    <meta name="description" content="Nova Docs - Professional document editing with real-time collaboration, AI writing assistance, and seamless cloud sync. The Google Docs alternative built for modern teams.">
+    <meta name="keywords" content="nova docs, document editor, collaborative writing, google docs alternative, online documents, nova suite, real-time collaboration, AI writing assistant">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Nova Docs - Professional Document Editor">
+    <meta property="og:description" content="Create, edit, and collaborate on documents with Nova Suite's powerful document editor featuring real-time collaboration and AI assistance.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://novasuite.one/apps/docs">
+    <meta property="og:image" content="https://static.wixstatic.com/media/5f23d5_908d68e048354dddb34ce90b3d523672~mv2.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nova Docs - Professional Document Editor">
+    <meta name="twitter:description" content="Create beautiful documents with real-time collaboration and AI assistance. The modern alternative to Google Docs.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://novasuite.one/apps/docs">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nova Docs",
+        "applicationCategory": "Productivity Software",
+        "operatingSystem": "Cloud",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "xxavvTechnologies",
+            "url": "https://tech.xxavvgroup.com"
+        },
+        "description": "Professional document editor with real-time collaboration, AI writing assistance, and cloud sync.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Nova Suite",
+            "logo": "https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png"
+        }
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        /* Document Types Section */
+        .document-types-section {
+            padding: 4rem 2rem;
+            background: var(--background);
+        }
+        
+        .document-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+        
+        .document-type-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .document-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 46, 255, 0.1);
+            border-color: var(--nova-primary);
+        }
+        
+        .document-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .document-type-card h3 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .document-type-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .document-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .document-features span {
+            background: rgba(0, 46, 255, 0.1);
+            color: var(--nova-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* CTA Section Updates */
+        .cta-section {
+            background: linear-gradient(135deg, var(--nova-primary), #34D399);
+            margin: 4rem 2rem;
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .primary-button {
+            background: white;
+            color: var(--nova-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-buttons .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-buttons .secondary-button {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-buttons .secondary-button:hover {
+            background: white;
+            color: var(--nova-primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .document-types-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .document-type-card {
+                padding: 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .primary-button,
+            .cta-buttons .secondary-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main>        <!-- Hero Section -->
+        <section class="hero">
+            <div class="gradient-bg docs-gradient"></div>
+            <h1 class="slide-in">Nova Docs</h1>
+            <p class="slide-in">Professional document editing with AI-powered writing assistance and seamless cloud integration</p>
+            <div class="hero-buttons">
+                <a href="https://docs.novasuite.one" class="primary-button pulse-animation">Open Nova Docs <i class="fas fa-arrow-right"></i></a>
+                <a href="#features" class="secondary-button">Explore Features</a>
+            </div>
+        </section>        <!-- Features Section -->
+        <section class="features stagger-fade-in" id="features">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Rich Text Editor</h3>
+                <p>Full-featured editor with advanced formatting, tables, images, and professional templates</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Writing Assistant</h3>
+                <p>Enhanced writing with grammar checks, style suggestions, and content generation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Cloud Sync</h3>
+                <p>Access your documents anywhere with automatic saving and cross-device sync</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Focus Mode</h3>
+                <p>Distraction-free writing environment to help you stay productive and focused</p>
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section class="whats-new-section stagger-fade-in">
+            <div class="whats-new-container">
+                <div class="whats-new-header">
+                    <h2>Why Choose Nova Docs?</h2>
+                    <p>A powerful alternative to traditional document editors with modern features for today's writers</p>
+                </div>
+                
+                <div class="whats-new-grid">
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Editor</span>
+                        <h3><span class="feature-highlight">Professional Templates</span></h3>
+                        <p>Start with beautifully designed templates for any document type.</p>
+                        <ul>
+                            <li>Professional resume and cover letter layouts</li>
+                            <li>Business proposal and report formats</li>
+                            <li>Academic paper and research document styles</li>
+                            <li>Creative writing and blogging templates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Productivity</span>
+                        <h3><span class="feature-highlight">Smart Writing Tools</span></h3>
+                        <p>Advanced tools to enhance your writing and boost productivity.</p>
+                        <ul>
+                            <li>Word count tracking and reading time estimates</li>
+                            <li>Document outline and navigation</li>
+                            <li>Custom styles and formatting presets</li>
+                            <li>Spell check and grammar assistance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">AI Feature</span>
+                        <h3><span class="feature-highlight">AI Writing Assistant</span></h3>
+                        <p>Intelligent writing support powered by advanced AI technology.</p>
+                        <ul>
+                            <li>Context-aware grammar and style suggestions</li>
+                            <li>Tone adjustment and readability optimization</li>
+                            <li>Content expansion and summarization tools</li>
+                            <li>Multi-language support with translation assistance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Integration</span>
+                        <h3><span class="feature-highlight">Nova Suite Integration</span></h3>
+                        <p>Seamlessly connect with other Nova Suite applications.</p>
+                        <ul>
+                            <li>Direct sharing to Nova Mail with formatted attachments</li>
+                            <li>Import data from Nova Central for dynamic documents</li>
+                            <li>Cross-app search and content discovery</li>
+                            <li>Unified account and settings management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Privacy</span>
+                        <h3><span class="feature-highlight">Privacy & Security</span></h3>
+                        <p>Your documents are secure with enterprise-grade protection.</p>
+                        <ul>
+                            <li>End-to-end encryption for document storage</li>
+                            <li>Local storage options for sensitive content</li>
+                            <li>No tracking or data mining of your content</li>
+                            <li>GDPR compliant data handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Export</span>
+                        <h3><span class="feature-highlight">Flexible Export Options</span></h3>
+                        <p>Share and publish your documents in multiple formats.</p>
+                        <ul>
+                            <li>Enhanced PDF export with custom styling</li>
+                            <li>Microsoft Word compatibility for easy sharing</li>
+                            <li>Direct publishing to web with custom domains</li>
+                            <li>Markdown and HTML export for developers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Document Types Section -->
+        <section class="document-types-section">
+            <div class="section-header centered">
+                <span class="section-badge">Document Types</span>
+                <h2>Perfect for Every Writing Need</h2>
+                <p class="section-description">From simple notes to complex reports, Nova Docs handles it all with style.</p>
+            </div>
+            
+            <div class="document-types-grid">                <div class="document-type-card">
+                    <div class="document-icon">📄</div>
+                    <h3>Business Documents</h3>
+                    <p>Reports, proposals, and professional correspondence with polished formatting</p>
+                    <div class="document-features">
+                        <span>Templates</span>
+                        <span>Charts & Tables</span>
+                        <span>Headers & Footers</span>
+                    </div>
+                </div>
+                
+                <div class="document-type-card">
+                    <div class="document-icon">📚</div>
+                    <h3>Academic Writing</h3>
+                    <p>Research papers, essays, and academic documents with citation management</p>
+                    <div class="document-features">
+                        <span>Citations</span>
+                        <span>Footnotes</span>
+                        <span>Bibliography</span>
+                    </div>
+                </div>
+                
+                <div class="document-type-card">
+                    <div class="document-icon">✍️</div>
+                    <h3>Creative Writing</h3>
+                    <p>Stories, scripts, and creative content with distraction-free writing modes</p>
+                    <div class="document-features">
+                        <span>Focus Mode</span>
+                        <span>Character Count</span>
+                        <span>Outline View</span>
+                    </div>
+                </div>
+                
+                <div class="document-type-card">
+                    <div class="document-icon">📋</div>
+                    <h3>Personal Organization</h3>
+                    <p>Notes, journals, and personal documents with privacy-focused features</p>
+                    <div class="document-features">
+                        <span>Private Storage</span>
+                        <span>Search & Tags</span>
+                        <span>Quick Notes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Writing?</h2>
+                <p>Experience the difference with Nova Docs - where powerful features meet simple design</p>
+                <div class="cta-buttons">
+                    <a href="https://docs.novasuite.one" class="primary-button">Start Writing Now</a>
+                    <a href="https://docs.novasuite.one/templates" class="secondary-button">Browse Templates</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="../js/components.js"></script>
+    <script>
+        // Add custom gradient for docs
+        document.addEventListener('DOMContentLoaded', function() {
+            const docsGradient = document.querySelector('.docs-gradient');
+            if (docsGradient) {
+                docsGradient.style.background = 'linear-gradient(135deg, var(--nova-primary), #34D399, var(--nova-secondary))';
+            }
+        });
+    </script>
+</body>
+</html>
