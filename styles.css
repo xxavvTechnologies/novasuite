@@ -2178,6 +2178,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-item {
     text-align: center;
+    padding: 1rem;
 }
 
 .stat-number {
@@ -2778,5 +2779,260 @@ h1, h2, h3, h4, h5, h6 {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/* Mobile App Section Styles */
+.mobile-app-section {
+    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-app-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(158, 0, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.mobile-app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-app-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.new-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--astro-primary), #7B00CC);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.mobile-app-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--text), var(--astro-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mobile-app-info p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.mobile-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mobile-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text);
+}
+
+.mobile-feature i {
+    color: var(--astro-primary);
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.download-info {
+    background: var(--surface);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(158, 0, 255, 0.2);
+}
+
+.download-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.download-note i {
+    color: var(--astro-primary);
+}
+
+.download-apk-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, var(--astro-primary), #7B00CC);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-apk-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(158, 0, 255, 0.4);
+}
+
+.phone-mockup {
+    max-width: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.phone-screen {
+    background: var(--background);
+    border-radius: 25px;
+    padding: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--surface);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--surface);
+    margin-bottom: 1rem;
+}
+
+.mobile-time {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.mobile-battery {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.mobile-astro-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: linear-gradient(90deg, var(--astro-primary), #7B00CC);
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.mobile-chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mobile-chat-message {
+    display: flex;
+}
+
+.mobile-chat-message.user {
+    justify-content: flex-end;
+}
+
+.mobile-chat-bubble {
+    padding: 0.8rem 1rem;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 0.9rem;
+}
+
+.astro-bubble {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.user-bubble {
+    background: var(--astro-primary);
+    color: white;
+}
+
+.mobile-input-area {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.mobile-input-area input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.mobile-input-area input::placeholder {
+    color: var(--text-secondary);
+}
+
+.mobile-input-area button {
+    background: var(--astro-primary);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .mobile-app-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .mobile-app-info h2 {
+        font-size: 2rem;
+    }
+    
+    .phone-mockup {
+        max-width: 250px;
+    }
+    
+    .phone-screen {
+        min-height: 400px;
     }
 }

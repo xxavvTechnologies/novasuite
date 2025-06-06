@@ -3,32 +3,32 @@
   <!-- Main Pages -->
   <url>
     <loc>https://novasuite.one/</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>  <url>
     <loc>https://novasuite.one/astro</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>  <url>
     <loc>https://novasuite.one/novaai</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>  <url>
     <loc>https://novasuite.one/get-started</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>  <url>
     <loc>https://novasuite.one/transformation</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>  <url>
     <loc>https://novasuite.one/nsplus</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -109,76 +109,76 @@
   <!-- Blog -->
   <url>
     <loc>https://novasuite.one/blog/</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>  <url>
     <loc>https://novasuite.one/blog/post</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Features -->  <url>
     <loc>https://novasuite.one/crypto</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://novasuite.one/id</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Community -->  <url>
     <loc>https://novasuite.one/community</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://novasuite.one/opensource</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <!-- About -->  <url>
     <loc>https://novasuite.one/careers</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://novasuite.one/status</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Legal -->  <url>
     <loc>https://novasuite.one/privacy-policy</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://novasuite.one/terms</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://novasuite.one/security</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://novasuite.one/report</loc>
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
