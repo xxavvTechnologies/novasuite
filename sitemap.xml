@@ -38,6 +38,73 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Apps -->
+  <url>
+    <loc>https://novasuite.one/apps/astro</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/docs</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/search</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/mail</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/central</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/calendar</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/present</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/gists</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/sketch</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/buzz</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://novasuite.one/apps/workspace</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Blog -->
   <url>
