@@ -71,9 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 wordCount: content.split(/\s+/).length,
                 readingTime: Math.max(1, Math.ceil(content.split(/\s+/).length / 200))
             });
-            
-            // Clear localStorage draft after successful publish
+              // Clear localStorage draft after successful publish
             localStorage.removeItem('nova-blog-draft');
+            
+            // Update RSS feed and sitemap
+            try {
+                if (window.updateRSSFeed) {
+                    await window.updateRSSFeed();
+                }
+                if (window.sitemapGenerator) {
+                    await window.sitemapGenerator.updateSitemap();
+                }
+            } catch (error) {
+                console.warn('Failed to update RSS/sitemap:', error);
+            }
             
             // Reset form
             document.getElementById('title').value = '';

@@ -3,15 +3,30 @@ import { collection, getDocs, query, where, orderBy } from 'https://www.gstatic.
 const postsContainer = document.getElementById('posts-container');
 
 async function loadPosts() {
-    const postsRef = collection(window.db, 'posts');
-    const postsQuery = query(postsRef, orderBy('date', 'desc'));
-    const snapshot = await getDocs(postsQuery);
+    try {
+        const postsRef = collection(window.db, 'posts');
+        const postsQuery = query(
+            postsRef, 
+            where('status', '==', 'published'),
+            orderBy('date', 'desc')
+        );
+        const snapshot = await getDocs(postsQuery);
 
-    snapshot.forEach(doc => {
-        const post = doc.data();
-        const postElement = createPostElement(post, doc.id);
-        postsContainer.appendChild(postElement);
-    });
+        if (snapshot.empty) {
+            postsContainer.innerHTML = '<div class="no-posts">No blog posts found. Check back soon for updates!</div>';
+            return;
+        }
+
+        postsContainer.innerHTML = ''; // Clear any existing content
+        snapshot.forEach(doc => {
+            const post = doc.data();
+            const postElement = createPostElement(post, doc.id);
+            postsContainer.appendChild(postElement);
+        });
+    } catch (error) {
+        console.error('Error loading posts:', error);
+        postsContainer.innerHTML = '<div class="error-posts">Error loading blog posts. Please try again later.</div>';
+    }
 }
 
 function createPostElement(post, id) {
@@ -62,30 +77,64 @@ document.querySelectorAll('.pill').forEach(pill => {
 });
 
 async function filterPosts(category) {
-    postsContainer.innerHTML = '';
-    const postsRef = collection(window.db, 'posts');
-    let postsQuery;
-    
-    if (category !== 'all updates') {
-        postsQuery = query(
-            postsRef,
-            where('category', '==', 
-                category === 'general updates' ? 'general' :
-                category === 'feature spotlights' ? 'feature' : 
-                category === 'tips & tricks' ? 'tips' : 'news'
-            ),
-            orderBy('date', 'desc')
-        );
-    } else {
-        postsQuery = query(postsRef, orderBy('date', 'desc'));
+    try {
+        postsContainer.innerHTML = '';
+        const postsRef = collection(window.db, 'posts');
+        let postsQuery;
+        
+        if (category !== 'all updates') {
+            postsQuery = query(
+                postsRef,
+                where('status', '==', 'published'),
+                where('category', '==', 
+                    category === 'general updates' ? 'general' :
+                    category === 'feature spotlights' ? 'feature' : 
+                    category === 'tips & tricks' ? 'tips' : 'news'
+                ),
+                orderBy('date', 'desc')
+            );
+        } else {
+            postsQuery = query(
+                postsRef,
+                where('status', '==', 'published'),
+                orderBy('date', 'desc')
+            );
+        }
+        
+        const snapshot = await getDocs(postsQuery);
+        
+        if (snapshot.empty) {
+            postsContainer.innerHTML = `<div class="no-posts">No posts found in "${category}" category.</div>`;
+            return;
+        }
+        
+        snapshot.forEach(doc => {
+            const post = doc.data();
+            const postElement = createPostElement(post, doc.id);
+            postsContainer.appendChild(postElement);
+        });
+    } catch (error) {
+        console.error('Error filtering posts:', error);
+        postsContainer.innerHTML = '<div class="error-posts">Error loading posts. Please try again later.</div>';
     }
-    
-    const snapshot = await getDocs(postsQuery);
-    snapshot.forEach(doc => {
-        const post = doc.data();
-        const postElement = createPostElement(post, doc.id);
-        postsContainer.appendChild(postElement);
-    });
 }
+
+// Initialize when Firebase is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for Firebase to be initialized
+    if (window.db) {
+        loadPosts();
+    } else {
+        // If Firebase isn't ready, wait a bit and try again
+        setTimeout(() => {
+            if (window.db) {
+                loadPosts();
+            } else {
+                console.error('Firebase not available, showing error message');
+                postsContainer.innerHTML = '<div class="error-posts">Unable to load blog posts. Please refresh the page.</div>';
+            }
+        }, 2000);
+    }
+});
 
 loadPosts();

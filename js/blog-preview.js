@@ -7,11 +7,21 @@ async function loadBlogPreview() {
     try {
         const postsQuery = query(
             collection(window.db, 'posts'),
+            where('status', '==', 'published'),
             orderBy('date', 'desc'),
             limit(3)
         );
 
         const snapshot = await getDocs(postsQuery);
+        
+        // Clear existing content
+        postsContainer.innerHTML = '';
+        
+        if (snapshot.empty) {
+            postsContainer.innerHTML = '<div class="no-preview-posts">No recent blog posts available.</div>';
+            return;
+        }
+        
         snapshot.forEach(doc => {
             const post = doc.data();
             const postElement = createPreviewElement(post, doc.id);
@@ -19,6 +29,8 @@ async function loadBlogPreview() {
         });
     } catch (error) {
         console.error('Error loading blog preview:', error);
+        // Show fallback content or hide the section
+        postsContainer.innerHTML = '<div class="error-preview-posts">Unable to load recent posts.</div>';
     }
 }
 

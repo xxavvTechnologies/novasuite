@@ -191,11 +191,12 @@ async function loadBlogPreviews() {
         }
         
         // Import Firebase modules dynamically
-        const { collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js');
+        const { collection, query, orderBy, limit, getDocs, where } = await import('https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js');
         
-        // Query the 3 most recent blog posts
+        // Query the 3 most recent published blog posts
         const postsQuery = query(
             collection(window.db, 'posts'),
+            where('status', '==', 'published'),
             orderBy('date', 'desc'),
             limit(3)
         );
@@ -240,7 +241,7 @@ async function loadBlogPreviews() {
             blogCard.innerHTML = `
                 <div class="blog-image">
                     <img src="${post.featuredImage || ''}" alt="${post.title}" 
-                         onerror="this.src='https://via.placeholder.com/350x200?text=Nova+Blog'">
+                         onerror="this.src='https://via.placeholder.com/350x200/1a1a1a/ffffff?text=Nova+Blog'">
                     <span class="blog-category">${category}</span>
                 </div>
                 <div class="blog-content">

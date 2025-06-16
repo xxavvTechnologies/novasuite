@@ -22,11 +22,33 @@
     <meta name="twitter:title" content="Nova Suite Blog - Latest Updates & Tips">
     <meta name="twitter:description" content="Stay updated with the latest features, tips, and Nova Suite insider updates.">
     <meta name="twitter:image" content="https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png">
-    
-    <!-- Additional SEO Meta Tags -->
+      <!-- Additional SEO Meta Tags -->
     <meta name="robots" content="index, follow">
     <link rel="alternate" type="application/rss+xml" title="Nova Suite Blog RSS Feed" href="/blog/feed.xml">
     <meta name="author" content="Nova Suite Blog Team">
+    
+    <!-- JSON-LD Structured Data for Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Nova Suite Blog",
+        "description": "Latest features, tips, and Nova Suite insider updates. Get the most out of your productivity tools.",
+        "url": "https://novasuite.one/blog",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Nova Suite",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://novasuite.one/blog"
+        }
+    }
+    </script>
 </head>
 <body>
     <div id="header-component"></div>
@@ -79,8 +101,8 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         window.db = getFirestore(app);
-    </script>
-    <script src="../js/components.js"></script>
+    </script>    <script src="../js/components.js"></script>
+    <script type="module" src="js/blog-manager.js"></script>
     <script type="module" src="js/blog.js"></script>
 </body>
 </html>

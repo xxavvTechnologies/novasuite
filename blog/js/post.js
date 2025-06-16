@@ -41,9 +41,20 @@ async function loadPost() {
         const pageUrl = window.location.href;
         const defaultImage = 'https://static.wixstatic.com/media/5f23d5_a503b0a04edf497fbb164b8f179d8bff~mv2.png';
         const readingTime = Math.ceil(currentPost.content.split(' ').length / 200); // Assuming 200 words per minute
-        const shortDescription = currentPost.excerpt || currentPost.content.substring(0, 160).trim() + '...';        // Update page title and meta tags
+        const shortDescription = currentPost.excerpt || currentPost.content.substring(0, 160).trim() + '...';
+        
+        // Update page title and meta tags
         document.title = `${currentPost.title} - Nova Suite Blog`;
-          // Update OpenGraph meta tags
+        document.getElementById('page-title').textContent = `${currentPost.title} - Nova Suite Blog`;
+        
+        // Set canonical URL
+        document.getElementById('canonical-url').setAttribute('href', pageUrl);
+        
+        // Set meta description and keywords
+        document.getElementById('meta-description').setAttribute('content', shortDescription);
+        document.getElementById('meta-keywords').setAttribute('content', `nova suite, ${currentPost.category}, ${currentPost.tags ? currentPost.tags.join(', ') : 'productivity, blog'}`);
+        
+        // Update OpenGraph meta tags
         document.getElementById('og-title').setAttribute('content', currentPost.title);
         document.getElementById('og-description').setAttribute('content', shortDescription);
         document.getElementById('og-image').setAttribute('content', currentPost.featuredImage || defaultImage);
@@ -61,6 +72,40 @@ async function loadPost() {
         document.getElementById('meta-author').setAttribute('content', currentPost.author || 'Nova Suite Blog Team');
         document.getElementById('meta-published').setAttribute('content', new Date(currentPost.date).toISOString());
         document.getElementById('meta-modified').setAttribute('content', currentPost.lastSaved || currentPost.date);
+
+        // Create JSON-LD structured data for SEO
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": currentPost.title,
+            "description": shortDescription,
+            "image": currentPost.featuredImage || defaultImage,
+            "author": {
+                "@type": "Organization",
+                "name": currentPost.author || "Nova Suite Blog Team",
+                "url": "https://novasuite.one"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Nova Suite",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": defaultImage
+                }
+            },
+            "datePublished": new Date(currentPost.date).toISOString(),
+            "dateModified": new Date(currentPost.lastSaved || currentPost.date).toISOString(),
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": pageUrl
+            },
+            "wordCount": currentPost.content.split(' ').length,
+            "keywords": currentPost.tags ? currentPost.tags.join(', ') : 'nova suite, productivity',
+            "articleSection": currentPost.category || 'Updates',
+            "timeRequired": `PT${readingTime}M`
+        };
+        
+        document.getElementById('article-schema').textContent = JSON.stringify(structuredData);
 
         const categoryLabels = {
             'general': 'General Updates',
@@ -365,9 +410,10 @@ async function loadRelatedPosts(category, currentPostId) {
         const postsRef = collection(window.db, 'posts');
         const q = query(
             postsRef,
-            where('category', '==', category),
             where('status', '==', 'published'),
-            limit(4)
+            where('category', '==', category),
+            orderBy('date', 'desc'),
+            limit(6)  // Get more to filter out current post
         );
         
         const querySnapshot = await getDocs(q);
@@ -393,14 +439,50 @@ async function loadRelatedPosts(category, currentPostId) {
             postCard.href = `post.html?id=${doc.id}`;
             postCard.className = 'related-post-card';
             postCard.innerHTML = `
-                ${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="related-post-img">` : ''}
+                ${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="related-post-img" loading="lazy">` : '<div class="related-post-img-placeholder"></div>'}
                 <h4 class="related-post-title">${post.title}</h4>
                 <span class="related-post-date">${date}</span>
+                <p class="related-post-excerpt">${post.excerpt || post.content.substring(0, 100)}...</p>
             `;
             
             relatedPostsContainer.appendChild(postCard);
             postsCount++;
         });
+        
+        // If no related posts in same category, try to get recent posts from other categories
+        if (postsCount === 0) {
+            const fallbackQuery = query(
+                postsRef,
+                where('status', '==', 'published'),
+                orderBy('date', 'desc'),
+                limit(4)
+            );
+            
+            const fallbackSnapshot = await getDocs(fallbackQuery);
+            fallbackSnapshot.forEach(doc => {
+                if (doc.id === currentPostId || postsCount >= 3) return;
+                
+                const post = doc.data();
+                const date = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                const postCard = document.createElement('a');
+                postCard.href = `post.html?id=${doc.id}`;
+                postCard.className = 'related-post-card';
+                postCard.innerHTML = `
+                    ${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="related-post-img" loading="lazy">` : '<div class="related-post-img-placeholder"></div>'}
+                    <h4 class="related-post-title">${post.title}</h4>
+                    <span class="related-post-date">${date}</span>
+                    <p class="related-post-excerpt">${post.excerpt || post.content.substring(0, 100)}...</p>
+                `;
+                
+                relatedPostsContainer.appendChild(postCard);
+                postsCount++;
+            });
+        }
         
         // Hide related posts section if none found
         const relatedPostsSection = document.querySelector('.related-posts');
@@ -411,6 +493,8 @@ async function loadRelatedPosts(category, currentPostId) {
         }
     } catch (error) {
         console.error("Error fetching related posts:", error);
+        const relatedPostsSection = document.querySelector('.related-posts');
+        relatedPostsSection.style.display = 'none';
     }
 }
 
