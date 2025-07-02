@@ -113,13 +113,18 @@
 
     <main>        <section class="hero">
             <div class="gradient-bg astro-gradient"></div>
-            <h1 class="slide-in">Meet Astro <span class="version-badge">v3.4.0</span></h1>
-            <p class="slide-in">Your AI companion across Nova Suite, now with seamless image generation and a refreshed mobile-first design</p>
+            <h1 class="slide-in">Meet Astro <span class="version-badge">v3.4.1</span></h1>
+            <p class="slide-in">Your AI companion across Nova Suite, now with mathematical capabilities, seamless image generation and a refreshed mobile-first design</p>
             <div class="hero-buttons">
                 <a href="https://astro.novasuite.one" class="primary-button pulse-animation">Try Astro Now <i class="fas fa-arrow-right"></i></a>
                 <a href="#whats-new" class="secondary-button">What's New</a>
             </div>
         </section><section class="features stagger-fade-in">
+            <div class="feature-card">
+                <div class="feature-icon">🧮</div>
+                <h3>Math Whiz Mode</h3>
+                <p>Solve complex mathematical problems with beautifully rendered equations using KaTeX integration</p>
+            </div>
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>Seamless Image Generation</h3>
@@ -135,16 +140,66 @@
                 <h3>Enhanced Performance</h3>
                 <p>Refactored components for improved speed and responsiveness</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Sidebar Canvas</h3>
-                <p>Redesigned canvas experience with an intuitive sidebar interface</p>
-            </div>
         </section>
 
         <section id="whats-new" class="whats-new-section stagger-fade-in">
             <div class="whats-new-container">
                 <div class="whats-new-header">
+                    <h2>What's New in Astro v3.4.1</h2>
+                    <p>Released on August 15, 2025 - Introducing mathematical capabilities and enhanced canvas components</p>
+                </div>
+                
+                <div class="whats-new-grid">
+                    <div class="whats-new-item">
+                        <span class="feature-tag">New Feature</span>
+                        <h3><span class="feature-highlight">Astro Math Whiz Mode</span></h3>
+                        <p>Introducing a new conversational mode specialized for mathematical tasks.</p>
+                        <ul>
+                            <li>Solve complex mathematical problems</li>
+                            <li>Beautifully rendered equations using KaTeX</li>
+                            <li>Enhanced dark mode support for equations</li>
+                            <li>Step-by-step solution breakdowns</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Enhancement</span>
+                        <h3><span class="feature-highlight">KaTeX Integration</span></h3>
+                        <p>Integrated KaTeX for rendering mathematical expressions in Markdown.</p>
+                        <ul>
+                            <li>Support for inline and block equations</li>
+                            <li>Comprehensive mathematical symbol support</li>
+                            <li>Improved styling for math content</li>
+                            <li>Accessible math rendering</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Improvement</span>
+                        <h3><span class="feature-highlight">Enhanced Canvas Component</span></h3>
+                        <p>Further improvements to the Canvas component for better visualization.</p>
+                        <ul>
+                            <li>Support for mathematical diagrams</li>
+                            <li>Improved rendering performance</li>
+                            <li>Better integration with math content</li>
+                            <li>Enhanced export options</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="whats-new-item">
+                        <span class="feature-tag">Refactoring</span>
+                        <h3><span class="feature-highlight">Component Structure</span></h3>
+                        <p>Refactored components for better structure and readability.</p>
+                        <ul>
+                            <li>Improved code organization</li>
+                            <li>Better component reusability</li>
+                            <li>Enhanced maintainability</li>
+                            <li>Optimized performance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="whats-new-header" style="margin-top: 3rem;">
                     <h2>What's New in Astro v3.4.0</h2>
                     <p>Released on July 1, 2025 - A major update focused on seamless creativity and mobile experience</p>
                 </div>
@@ -199,7 +254,7 @@
                 
                 <div style="text-align: center; margin-top: 3rem;">
                     <h3>Version Comparison</h3>
-                    <p>See how Astro v3.4.0 compares to previous releases</p>
+                    <p>See how Astro v3.4.1 compares to previous releases</p>
                 </div>
                   <table class="version-comparison">
                     <thead>
@@ -208,13 +263,29 @@
                             <th>v3.1.0</th>
                             <th>v3.3.0</th>
                             <th>v3.4.0</th>
+                            <th>v3.4.1</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Math Whiz Mode</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>KaTeX Integration</td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
                             <td>Seamless Image Generation</td>
                             <td><span class="times">✕</span></td>
                             <td><span class="times">✕</span></td>
+                            <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                         </tr>
                         <tr>
@@ -222,31 +293,24 @@
                             <td><span class="times">✕</span></td>
                             <td><span class="times">✕</span></td>
                             <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>Sidebar Canvas</td>
                             <td>Inline</td>
                             <td>Inline</td>
                             <td>Sidebar</td>
+                            <td>Enhanced</td>
                         </tr>
                         <tr>
                             <td>Component Performance</td>
                             <td>Base</td>
                             <td>+15%</td>
                             <td>+40%</td>
+                            <td>+45%</td>
                         </tr>
                     </tbody>
                 </table>
-                  <div class="demo-section">
-                    <h3>See Astro v3.4.0 in Action</h3>
-                    <div class="video-container">
-                        <div class="video-placeholder">
-                            <div class="play-button">▶</div>
-                            <img src="images/astro-v3-demo-thumbnail.png" alt="Astro v3.4.0 Demo" class="demo-thumbnail">
-                        </div>
-                        <p class="video-caption">Watch how seamless image generation and the new mobile-first design transform your workflow</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -419,11 +483,11 @@
 
         <section class="cta-section">
             <div class="content-container">
-                <div class="cta-content">                    <h2>Ready to experience Astro v3.4.0?</h2>
-                    <p>Upgrade today and experience seamless image generation with our refreshed mobile-first design.</p>
+                <div class="cta-content">                    <h2>Ready to experience Astro v3.4.1?</h2>
+                    <p>Upgrade today and experience Math Whiz mode, KaTeX integration, seamless image generation and our refreshed mobile-first design.</p>
                     <div class="cta-buttons">
                         <a href="https://astro.novasuite.one" class="primary-button pulse-animation">Try Astro Now <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://blog.novasuite.one/blog/-astro-v3-4-0-a-smarter-sleeker-and-better-visual-ai-experience/" class="secondary-button">Read Release Notes</a>
+                        <a href="https://blog.novasuite.one/blog/-astro-v3-4-1-math-markdown-more/" class="secondary-button">Read Release Notes</a>
                     </div>
                 </div>
             </div>
