@@ -34,10 +34,10 @@ const handler = async (event, context) => {
             items.push(`
                 <item>
                     <title>${escapeHtml(post.title)}</title>
-                    <link>https://novasuite.one/blog/post.html?id=${doc.id}</link>
+                    <link>https://blog.novasuite.one/post/${doc.id}</link>
                     <description>${escapeHtml(post.excerpt || post.content.substring(0, 150) + '...')}</description>
                     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-                    <guid isPermaLink="true">https://novasuite.one/blog/post.html?id=${doc.id}</guid>
+                    <guid isPermaLink="true">https://blog.novasuite.one/post/${doc.id}</guid>
                     <category>${escapeHtml(post.category || 'Updates')}</category>
                     ${post.featuredImage ? `<enclosure url="${escapeHtml(post.featuredImage)}" type="image/jpeg"/>` : ''}
                 </item>
@@ -48,7 +48,7 @@ const handler = async (event, context) => {
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Nova Suite Blog</title>
-        <link>https://novasuite.one/blog</link>
+        <link>https://blog.novasuite.one</link>
         <description>Latest features, tips, and Nova Suite insider updates</description>
         <language>en-us</language>
         <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

@@ -38,7 +38,7 @@ function createPreviewElement(post, id) {
     const div = document.createElement('div');
     div.className = 'preview-post-card';
     div.innerHTML = `
-        <a href="/blog/post.html?id=${id}" class="preview-post-link">
+        <a href="https://blog.novasuite.one/post/${id}" class="preview-post-link">
             ${post.featuredImage ? 
                 `<img src="${post.featuredImage}" class="preview-post-image" alt="${post.title}">` : 
                 '<div class="preview-post-image-placeholder"></div>'
