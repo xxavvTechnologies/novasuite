@@ -14,6 +14,7 @@
 /terms              /terms.html            200
 /careers            /careers.html          200
 /success            /success.html          200
+/help               https://novasuite.tawk.help/      301!
 
 # Redirect .html versions to clean URLs
 /astro.html         /astro                 301!

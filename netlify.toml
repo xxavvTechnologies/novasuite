@@ -54,6 +54,11 @@
   to = "/success.html"
   status = 200
 
+[[redirects]]
+  from = "/help"
+  to = "https://novasuite.tawk.help/"
+  status = 301
+
 # Redirects from .html URLs to clean URLs
 [[redirects]]
   from = "/astro.html"
